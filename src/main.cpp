@@ -10,12 +10,15 @@ int main() {
     sf::Clock clock;
     sf::Time time = clock.getElapsedTime();
     Window.setFramerateLimit(60);
-    sf::Sprite playerSprite;
     sf::Texture playerTexture;
+    sf::Texture chTexture;
     playerTexture.loadFromFile("assets/player.png");
+    chTexture.loadFromFile("assets/player.png");
        
     Player player(World, 100, 100);
+    Character character1(World, 600, 600, PLAYER_DIAMETR, PLAYER_DIAMETR, 1000);
     player.setTexture(playerTexture);
+    character1.setTexture(playerTexture);
     while (Window.isOpen()) {
         sf::Event event;
         while (Window.pollEvent(event)) {
@@ -25,7 +28,9 @@ int main() {
         // Clear window
         Window.clear(sf::Color::White);
         player.Update();
+        character1.Update();
         Window.draw(player);
+        Window.draw(character1);
         Window.display();
     }
 }

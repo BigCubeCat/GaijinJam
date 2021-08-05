@@ -14,6 +14,9 @@ Character::Character(
     Shape.m_p.Set(this->width / SCALE, this->height / SCALE);
     Shape.m_radius = this->width / 2 / SCALE;
 
+    Body->SetFixedRotation(true);
+    Body->SetLinearDamping(0.5f);
+
     b2FixtureDef FixtureDef;
     FixtureDef.density = 10.0f;
     FixtureDef.friction = 10.0f;
