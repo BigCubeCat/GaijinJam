@@ -1,3 +1,4 @@
+#pragma once
 #include "../headers/GameObject.h"
 #include <box2d/box2d.h>
 
@@ -9,7 +10,7 @@ public:
     );
     float speed = 10.0f;
     b2World *world;
-    bool animated = false; // TODO delete, when animation be ready
+    bool animated = true; // TODO delete, when animation be ready
     std::string current_animation;
     std::map<std::string, Animation> animations;
     void Update();

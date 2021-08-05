@@ -15,11 +15,11 @@ Character::Character(
     Shape.m_radius = this->width / 2 / SCALE;
 
     Body->SetFixedRotation(true);
-    Body->SetLinearDamping(0.5f);
+    Body->SetLinearDamping(0.9f);
 
     b2FixtureDef FixtureDef;
     FixtureDef.density = 10.0f;
-    FixtureDef.friction = 10.0f;
+    FixtureDef.friction = 0.1f;
     FixtureDef.shape = &Shape;
     Body->CreateFixture(&FixtureDef);
     this->body = Body;
@@ -35,4 +35,6 @@ void Character::Update() {
         //this->sprite = this->animations[this->current_animation].getSprite();
     }
     this->setPosition(this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE);
+    x = this->body->GetPosition().x * SCALE;
+    y = this->body->GetPosition().y * SCALE;
 }
