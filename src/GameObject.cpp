@@ -1,12 +1,19 @@
 #include "../headers/GameObject.h"
-#include "../headers/constants.h"
+#include <iostream>
 
-GameObject::GameObject(sf::Vector2f pos, sf::Sprite sprite, float w=0, float h=0, b2Body *bdy=nullptr) {
+GameObject::GameObject(sf::RenderWindow *window, sf::Clock *clock, float x, float y, sf::Sprite sprite, float w, float h) {
+    sf::Vector2f pos(x, y);
     this->position = pos;
     this->height = h;
     this->width = w;
+    this->window = window;
+    this->clock = clock;
 }
 
-void GameObject::draw(sf::Time time) {
-    Window.draw(this->sprite);
+sf::Sprite GameObject::getCurrentSprite() {
+    auto pos = this->body->GetPosition();
+    std::cout << pos.x << " " << pos.y << std::endl;
+    std::cout << this->width << " " << this->height << std::endl;
+    this->sprite.setPosition(pos.x * SCALE, pos.y * SCALE);
+    return this->sprite;
 }
