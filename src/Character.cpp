@@ -1,10 +1,10 @@
 #include "../headers/Character.h"
 
 Character::Character(
-        sf::RenderWindow *window, sf::Clock *clock, b2World *world, float x, float y, 
-        sf::Sprite sprite, float w, float h, float weight
-    ) : GameObject(window, clock, x, y, sprite, w, h) {
-    this->world = world;
+        b2World &world, float x, float y, 
+        float w, float h, float weight
+    ) : GameObject(x, y, w, h) {
+    this->world = &world;
     b2BodyDef BodyDef;
     BodyDef.position = b2Vec2(x / SCALE, y / SCALE);
     BodyDef.type = b2_dynamicBody;
@@ -22,13 +22,14 @@ Character::Character(
     this->body = Body;
 }
 
-void Character::Move(b2Vec2 vector) {
-    this->body->ApplyForceToCenter(vector, true);
+void Character::Move(float x, float y) {
+    this->body->SetLinearVelocity(b2Vec2{x * this->speed, y * this->speed});
 }
 
-void Character::Update(sf::Time deltaTime) {
+void Character::Update() {
     if (this->animated) {
         //this->animations[this->current_animation].Tick(deltaTime);
         //this->sprite = this->animations[this->current_animation].getSprite();
     }
+    this->setPosition(this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE);
 }

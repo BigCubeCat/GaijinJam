@@ -3,15 +3,11 @@
 #include "../headers/Animation.h"
 #include "../headers/constants.h"
 
-class GameObject {
+class GameObject : public sf::Sprite {
 public:
-	sf::RenderWindow *window;
-	sf::Clock *clock;
 	float width, height;
 	sf::Vector2f position;
-	sf::Sprite sprite;
 	b2Body *body;
 
-	GameObject(sf::RenderWindow *window, sf::Clock *clock, float x, float y, sf::Sprite sprite, float w, float h);
-	sf::Sprite getCurrentSprite();
+	GameObject(float x, float y, float w, float h);
 };
