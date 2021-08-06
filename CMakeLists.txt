@@ -8,14 +8,18 @@ find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 add_executable(gaijinjam src/main.cpp
     src/Animation.cpp
     src/Character.cpp
+    src/Client.cpp
     src/GameObject.cpp
     src/Player.cpp
-        headers/Animation.h
+    src/Wall.cpp 
+    headers/Animation.h
     headers/Character.h
     headers/constants.h
     headers/GameObject.h
     headers/Player.h
-        src/Wall.cpp headers/Wall.h)
+    headers/Wall.h
+    headers/Client.h
+)
 
 target_link_libraries(gaijinjam sfml-graphics sfml-audio box2d)
 

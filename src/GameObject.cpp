@@ -7,3 +7,7 @@ GameObject::GameObject(float x, float y, float w, float h) : sf::Sprite() {
     this->height = h;
     this->width = w;
 }
+
+sf::Vector2f GameObject::GetBodyPosition() {
+    return sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
+}

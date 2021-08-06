@@ -22,6 +22,7 @@ Character::Character(
     FixtureDef.friction = 0.1;
     FixtureDef.shape = &Shape;
     Body->CreateFixture(&FixtureDef);
+    Body->SetBullet(true);
     this->body = Body;
 }
 

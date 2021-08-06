@@ -8,11 +8,11 @@ public:
         b2World &world, float x, float y, 
         float w, float h, float weight
     );
-    float speed = 10.0f;
+    float speed = 2.0f;
     b2World *world;
     bool animated = true; // TODO delete, when animation be ready
     std::string current_animation;
-    std::map<std::string, Animation> animations;
+    std::unordered_map<std::string, Animation> animations;
     void Update();
     void Move(float x, float y);
 };
