@@ -6,6 +6,7 @@ using namespace std;
 Player::Player(
         b2World &world, int x, int y
     ) : Character(world, 500, 500, PLAYER_DIAMETR, PLAYER_DIAMETR, 100) {
+    this->speed = PLAYER_SPEED;
 }
 
 

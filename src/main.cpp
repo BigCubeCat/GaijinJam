@@ -10,11 +10,17 @@ int main() {
     sf::Clock clock;
     sf::Time time = clock.getElapsedTime();
     Window.setFramerateLimit(60);
+    
+    sf::Texture mapTexture;
     sf::Texture playerTexture;
     sf::Texture chTexture;
-    playerTexture.loadFromFile("assets/player.png");
+    playerTexture.loadFromFile("assets/characters/player.png");
     chTexture.loadFromFile("assets/player.png");
+    mapTexture.loadFromFile("assets/bg.png");
        
+    sf::Sprite Map;
+    Map.setTexture(mapTexture);
+    Map.setScale(sf::Vector2f(0.5, 0.5f));
     Player player(World, 100, 100);
     Character character1(World, 600, 600, PLAYER_DIAMETR, PLAYER_DIAMETR, 1000);
     player.setTexture(playerTexture);
@@ -27,6 +33,7 @@ int main() {
         World.Step(1 / SCALE, 8, 3);
         // Clear window
         Window.clear(sf::Color::White);
+        Window.draw(Map);
         player.Update();
         character1.Update();
         Window.draw(player);

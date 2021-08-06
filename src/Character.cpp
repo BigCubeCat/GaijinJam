@@ -18,8 +18,8 @@ Character::Character(
     Body->SetLinearDamping(0.5f);
 
     b2FixtureDef FixtureDef;
-    FixtureDef.density = 10.0f;
-    FixtureDef.friction = 10.0f;
+    FixtureDef.density = weight;
+    FixtureDef.friction = 0.5f;
     FixtureDef.shape = &Shape;
     Body->CreateFixture(&FixtureDef);
     this->body = Body;
