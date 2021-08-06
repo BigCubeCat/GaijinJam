@@ -10,4 +10,6 @@ public:
     Player(b2World &world, int x, int y);
     void Update();
     void Callback();
+    void OnCollisionBegin(int);
+    void OnCollisionEnd(int);
 };

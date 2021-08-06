@@ -7,6 +7,7 @@
 class GameObject : public sf::Sprite {
 public:
 	float width, height;
+	int TypeIndex = GAME_OBJECT;
 	sf::Vector2f position;
 	float x,y;
 	bool needDestroy = false;
@@ -14,4 +15,7 @@ public:
 
 	GameObject(float x, float y, float w, float h);
 	sf::Vector2f GetBodyPosition();
+	void SetBody(b2Body *body);
+	void OnCollisionBegin(int otherTypeIndex);
+	void OnCollisionEnd(int otherTypeIndex);
 };

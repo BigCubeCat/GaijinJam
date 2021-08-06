@@ -26,10 +26,6 @@ void Client::Update() {
 }
 
 bool Client::nearThePoint(sf::Vector2f pos, sf::Vector2f point) {
-    std::cout << std::endl;
-    std::cout << pos.x - point.x << std::endl;
-    std::cout << pos.y - point.y << std::endl;
-    std::cout << std::endl;
     return (abs(pos.x - point.x) < this->speed) && (abs(pos.y - point.y) < this->speed);
 }
 
@@ -39,15 +35,11 @@ void Client::chooseWay() {
         if (this->nearThePoint(this->lastPoint, pos)) {
             this->needDestroy = true;
         }
-        std::cout << "g\n";
         this->currentPoint = this->lastPoint;
-        std::cout << currentPoint.x << " " << currentPoint.y << "\n";
     } else {
-        std::cout << "G\n";
         int val = std::rand() % this->points.size();
         this->currentPoint = this->points.at(val);
         this->points.erase(this->points.begin() + val);
-        std::cout << currentPoint.x << " " << currentPoint.y << "\n";
     }
 }
 

@@ -24,7 +24,7 @@ Character::Character(
     FixtureDef.shape = &Shape;
     Body->CreateFixture(&FixtureDef);
     Body->SetBullet(true);
-    this->body = Body;
+    this->SetBody(Body);
 }
 
 void Character::Move(float x, float y) {

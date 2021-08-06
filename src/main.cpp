@@ -2,6 +2,7 @@
 #include "../headers/Player.h"
 #include "../headers/Wall.h"
 #include "../headers/Client.h"
+#include "../headers/CollisionListener.h"
 #include <iostream>
 #include <list>
 #include <map>
@@ -23,6 +24,9 @@ void initWalls(b2World &World) {
 int main(void) {
     sf::RenderWindow Window(sf::VideoMode(1920, 1080), "Game", sf::Style::Default);
     b2World World(Gravity);
+    CollisionListener *listener;
+    World.SetContactListener(listener);
+
     sf::Clock clock;
     sf::Time time = clock.getElapsedTime();
     Window.setFramerateLimit(60);
