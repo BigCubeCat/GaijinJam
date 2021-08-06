@@ -47,8 +47,7 @@ int main(void) {
     points.push_back(sf::Vector2f{200, 200});
     points.push_back(sf::Vector2f{800, 200});
 
-    Client character1(World, 100, 100, PLAYER_DIAMETR, PLAYER_DIAMETR, 100, points, true);
-    Client character2(World, 100, 155, PLAYER_DIAMETR, PLAYER_DIAMETR, 100, points, true);
+    Client character1(World, 100, 100, PLAYER_DIAMETR, PLAYER_DIAMETR, 70, points, true);
     character1.lastPoint = sf::Vector2f{800, 800};
     GameObject Map(50, 50, 1920, 1080);
     player.setTexture(playerTexture);
@@ -67,7 +66,6 @@ int main(void) {
         character1.Update();
         Window.draw(player);
         Window.draw(character1);
-        Window.draw(character2);
         //Window.draw(Map);
         //Window.draw(wall1);
         Window.display();

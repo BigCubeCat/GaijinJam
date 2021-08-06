@@ -1,4 +1,5 @@
 #include "../headers/Character.h"
+#include "../headers/constants.h"
 
 Character::Character(
         b2World &world, float x, float y, 
@@ -27,7 +28,11 @@ Character::Character(
 }
 
 void Character::Move(float x, float y) {
+    if (this->stoped) this->speed = minSpeed;
+    // setup acceleration
+    if (speed + ACCELERATION > maxSpeed) this->speed = maxSpeed; else this->speed = speed + ACCELERATION;
     this->body->SetLinearVelocity(b2Vec2{x * this->speed, y * this->speed});
+    this->stoped = x == 0 && y == 0;
 }
 
 void Character::Update() {

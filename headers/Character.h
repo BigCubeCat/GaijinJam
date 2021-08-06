@@ -8,7 +8,11 @@ public:
         b2World &world, float x, float y, 
         float w, float h, float weight
     );
-    float speed = 2.0f;
+    float speed = 1.0f;
+    bool stoped = true;
+    float minSpeed = 1.0f;
+    float maxSpeed = 10.0f;
+    float lastXSpeed, lastYSpeed;
     b2World *world;
     bool animated = true; // TODO delete, when animation be ready
     std::string current_animation;

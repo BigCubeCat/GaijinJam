@@ -8,3 +8,4 @@ const float PLAYER_DIAMETR = 50.0f;
 const float POINT_DISTANCE = 0.9;
 const int MINIMUM_POINTS = 4;
 const int MAXIMUM_POINTS = 10;
+const float ACCELERATION = 0.1;
