@@ -14,6 +14,6 @@ sf::Vector2f GameObject::GetBodyPosition() {
 
 void GameObject::SetBody(b2Body *body) {
     this->body = body;
-    this->body->SetUserData(this); // TODO не работает
-    
+    //this->body->SetUserData(this); // TODO не работает
+
 }
