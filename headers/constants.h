@@ -6,9 +6,17 @@ const float SCALE = 30.f;
 const float PLAYER_SPEED = 4.0;
 const float PLAYER_DIAMETR = 50.0f;
 const float POINT_DISTANCE = 0.9;
-const int MINIMUM_POINTS = 4;
-const int MAXIMUM_POINTS = 10;
+
+// AI
+const float MINIMUM_FREE_TIME = 1.0f; // in seconds;
+const float MAXIMUM_FREE_TIME = 10.0f; // in seconds;
+
+// physics
 const float ACCELERATION = 0.1;
+const float DEFAULT_DAMPING = 0.9f;
+const float DEFAULT_FRICTION = 0.1f;
 
 // Type's id
 const int GAME_OBJECT = 0;
+const int PLAYER_TYPE = 1;
+const int CLIENT_TYPE = 2;

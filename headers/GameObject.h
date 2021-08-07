@@ -13,9 +13,9 @@ public:
 	bool needDestroy = false;
 	b2Body *body;
 
-	GameObject(float x, float y, float w, float h);
+	GameObject(float x, float y, float w, float h, int typeIndex);
 	sf::Vector2f GetBodyPosition();
+	void Update();
 	void SetBody(b2Body *body);
-	void OnCollisionBegin(int otherTypeIndex);
-	void OnCollisionEnd(int otherTypeIndex);
+	void ReactToClass(int classType);
 };

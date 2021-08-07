@@ -9,6 +9,7 @@ int charToInt(std::string & line){
     for(int i = 0; i < line.size(); i++){
         res = ((int)line[i]  - 48)* pow(10, i);
     }
+    return res;
 }
 
 void makeMap(std::string & path, std::list<Wall> & mainWallList, std::list <std::list<Wall>> & mapWallList){

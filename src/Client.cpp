@@ -5,24 +5,32 @@
 
 Client::Client(
     b2World &world, float x, float y, float w, float h, 
-    float weight, std::vector<sf::Vector2f> points, bool masked
-) : Character(world, x, y, w, h, weight) {
+    float weight, sf::Vector2f lastPoint, bool masked
+) : Character(world, x, y, w, h, weight, CLIENT_TYPE) {
+    this->lastPoint = lastPoint;
     this->masked = masked;
-    this->points = points;
     this->chooseWay();
 }
 
-void Client::Update() {
-    auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
-    if (this->nearThePoint(this->currentPoint, pos)) {
-        this->chooseWay();
+void Client::Update(float deltaTime) {
+    if (this->goToShop) {
+        auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
+        if (this->nearThePoint(this->lastPoint, pos)) {
+            std::cout << "Finished\n";
+        }
+         this->Move(
+            normalize(this->lastPoint.x - pos.x),
+            normalize(this->lastPoint.y - pos.y)
+        );
+    } else {
+        this->spendedTime += deltaTime;
+        if (this->spendedTime > this->freeTime) {
+            this->goToShop = true;
+        }
+        this->Move(this->xVector, this->yVector);
+
     }
-    //this->currentPoint = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
-     this->Move(
-        normalize(this->currentPoint.x - pos.x),
-        normalize(this->currentPoint.y - pos.y)
-    );
-    Character::Update();
+    Character::Update(deltaTime);
 }
 
 bool Client::nearThePoint(sf::Vector2f pos, sf::Vector2f point) {
@@ -30,17 +38,6 @@ bool Client::nearThePoint(sf::Vector2f pos, sf::Vector2f point) {
 }
 
 void Client::chooseWay() {
-    if (this->points.size() == 0) {
-        auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
-        if (this->nearThePoint(this->lastPoint, pos)) {
-            this->needDestroy = true;
-        }
-        this->currentPoint = this->lastPoint;
-    } else {
-        int val = std::rand() % this->points.size();
-        this->currentPoint = this->points.at(val);
-        this->points.erase(this->points.begin() + val);
-    }
 }
 
 float Client::normalize(int num) {
