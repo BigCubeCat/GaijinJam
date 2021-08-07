@@ -6,7 +6,7 @@ class Character : public GameObject {
 public:
     Character(
         b2World &world, float x, float y, 
-        float w, float h, float weight
+        float w, float h, float weight, int typeIndex
     );
     float speed = 1.0f;
     bool stoped = true;
@@ -16,6 +16,6 @@ public:
     bool animated = true; // TODO delete, when animation be ready
     std::string current_animation;
     Animation animation;
-    void Update();
+    void Update(float deltaTime);
     void Move(float x, float y);
 };

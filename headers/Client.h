@@ -3,16 +3,20 @@
 class Client : public Character {
 private:
     float normalize(int);
+    float spendedTime = 0.0f;
+    float freeTime;
+    float yVector, xVector;
+    float changeWayProbability;
 public:
+    bool goToShop = false;
     bool masked = false;
-    std::vector<sf::Vector2f> points;
-    sf::Vector2f currentPoint;
+    //sf::Vector2f currentPoint;
     sf::Vector2f lastPoint;
     Client(
         b2World &world, float x, float y, float w, float h, 
-        float weight, std::vector<sf::Vector2f>, bool masked=false
+        float weight, sf::Vector2f lastPoint, bool masked
     );
-    void Update();
+    void Update(float deltaTime);
     void chooseWay();
     bool nearThePoint(sf::Vector2f position, sf::Vector2f point);
 };

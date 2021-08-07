@@ -1,6 +1,6 @@
 #include "../headers/Wall.h"
 
-Wall::Wall(b2World &world, float x, float y, float w, float h) : GameObject(x, y ,w, h) {
+Wall::Wall(b2World &world, float x, float y, float w, float h) : GameObject(x, y ,w, h, GAME_OBJECT) {
     this->x = x;
     this->y = y;
     this->world = &world;

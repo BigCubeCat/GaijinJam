@@ -1,10 +1,11 @@
 #include "../headers/Character.h"
 #include "../headers/constants.h"
+#include <iostream>
 
 Character::Character(
         b2World &world, float x, float y, 
-        float w, float h, float weight
-    ) : GameObject(x, y, w, h) {
+        float w, float h, float weight, int typeIndex
+    ) : GameObject(x, y, w, h, typeIndex) {
     this->world = &world;
     
     b2BodyDef BodyDef;
@@ -36,7 +37,7 @@ void Character::Move(float x, float y) {
     this->stoped = x == 0 && y == 0;
 }
 
-void Character::Update() {
+void Character::Update(float deltaTime) {
     if (this->animated) {
         //this->animation.Tick();
         //this->setTexture(this->animation.getTexture());

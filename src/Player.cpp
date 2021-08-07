@@ -5,15 +5,16 @@ using namespace std;
 
 Player::Player(
         b2World &world, int x, int y
-    ) : Character(world, x, y, PLAYER_DIAMETR, PLAYER_DIAMETR, 100) {
+    ) : Character(world, x, y, PLAYER_DIAMETR, PLAYER_DIAMETR, 100, PLAYER_TYPE) {
     this->maxSpeed = PLAYER_SPEED;
+    this->TypeIndex = PLAYER_TYPE;
 }
 
 
-void Player::Update() {
+void Player::Update(float deltaTime) {
     this->Callback();
     this->Move(this->xSpeed, this->ySpeed);
-    Character::Update();
+    Character::Update(deltaTime);
 }
 
 void Player::Callback() {
