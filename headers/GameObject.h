@@ -15,7 +15,7 @@ public:
 
 	GameObject(float x, float y, float w, float h);
 	sf::Vector2f GetBodyPosition();
+	void Update();
 	void SetBody(b2Body *body);
-	void OnCollisionBegin(int otherTypeIndex);
-	void OnCollisionEnd(int otherTypeIndex);
+	void ReactToClass(int classType);
 };

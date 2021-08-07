@@ -2,7 +2,6 @@
 #include "../headers/Player.h"
 #include "../headers/Wall.h"
 #include "../headers/Client.h"
-#include "../headers/CollisionListener.h"
 #include <iostream>
 #include <list>
 #include <map>
@@ -20,12 +19,13 @@ int main(void) {
     sf::Texture playerTexture;
     sf::Texture chTexture;
     sf::Texture MapTexture;
-    playerTexture.loadFromFile("../assets/PlayerW.png");
-    chTexture.loadFromFile("../assets/CharWO1.png");
-    MapTexture.loadFromFile(("../assets/Map.png"));
+    playerTexture.loadFromFile("assets/characters/player.png");
+    chTexture.loadFromFile("assets/characters/chel.png");
+    MapTexture.loadFromFile(("assets/Map.png"));
     std::list <Wall> mainWallList;
     std::list <std::list<Wall>> mapWallList;
     Player player(World, 500, 500);
+    player.setTexture(playerTexture);
 
     std::vector<sf::Vector2f> points;
     points.push_back(sf::Vector2f{200, 200});
@@ -61,11 +61,11 @@ int main(void) {
         World.Step(1 / SCALE, 8, 3);
         Window.clear(sf::Color::White);
         player.Update();
-        std::cout << player.x << " : " << player.y << std::endl;
         character1.Update();
         //Window.draw(player);
        // Window.draw(character1);
         Window.draw(Map);
+        Window.draw(player);
         //Window.draw(wall1);
         Window.display();
     }

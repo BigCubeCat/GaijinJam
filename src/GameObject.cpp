@@ -14,6 +14,24 @@ sf::Vector2f GameObject::GetBodyPosition() {
 
 void GameObject::SetBody(b2Body *body) {
     this->body = body;
-    //this->body->SetUserData(this); // TODO не работает
+    this->body->GetUserData().pointer = this->TypeIndex;
+    std::cout << "pointer = ";
+    std::cout << this->body->GetUserData().pointer << std::endl;
+}
 
+void GameObject::ReactToClass(int classType) {
+    std::cout << "collision with " << classType << std::endl;
+}
+
+void GameObject::Update() {
+    for (b2ContactEdge* ce = this->body->GetContactList(); ce; ce = ce->next) {
+        std::cout << ce->other->GetUserData().pointer;
+        try{
+            int otherType = ce->other->GetUserData().pointer;
+            this->ReactToClass(otherType);
+        }
+        catch (...) {
+            std::cout << "ERROR\n";
+        }
+    }
 }

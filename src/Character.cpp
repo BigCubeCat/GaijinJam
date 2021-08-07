@@ -6,6 +6,7 @@ Character::Character(
         float w, float h, float weight
     ) : GameObject(x, y, w, h) {
     this->world = &world;
+    
     b2BodyDef BodyDef;
     BodyDef.position = b2Vec2(x / SCALE, y / SCALE);
     BodyDef.type = b2_dynamicBody;
@@ -16,11 +17,11 @@ Character::Character(
     Shape.m_radius = this->width / 2 / SCALE;
 
     Body->SetFixedRotation(true);
-    Body->SetLinearDamping(0.9f);
+    Body->SetLinearDamping(DEFAULT_DAMPING);
 
     b2FixtureDef FixtureDef;
     FixtureDef.density = weight;
-    FixtureDef.friction = 0.1;
+    FixtureDef.friction = DEFAULT_FRICTION;
     FixtureDef.shape = &Shape;
     Body->CreateFixture(&FixtureDef);
     Body->SetBullet(true);
@@ -37,10 +38,11 @@ void Character::Move(float x, float y) {
 
 void Character::Update() {
     if (this->animated) {
-        //this->animations[this->current_animation].Tick(deltaTime);
-        //this->sprite = this->animations[this->current_animation].getSprite();
+        //this->animation.Tick();
+        //this->setTexture(this->animation.getTexture());
     }
     this->setPosition(this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE);
     x = this->body->GetPosition().x * SCALE;
     y = this->body->GetPosition().y * SCALE;
+    GameObject::Update();
 }

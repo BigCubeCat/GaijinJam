@@ -1,17 +1,13 @@
 #include "../headers/Animation.h"
 
-Animation::Animation(std::vector<sf::Sprite> sp) {
-    this->sprites = sp;
+void Animation::setTextures(std::vector<sf::Texture> sp) {
+    this->frames = sp;
 }
 
-void Animation::Tick(sf::Time deltaTime) {
-    this->past_time += deltaTime;
-    if (this->time_to_one_sprite <= this->past_time) {// need change sprite
-        this->currentSprite++;
-        if (this->currentSprite == this->countSprites) this->currentSprite = 0;
-    }
+void Animation::Tick() {
+    this->currentTexture = (this->currentTexture + 1) % this->countTexture;
 }
 
-sf::Sprite Animation::getSprite() {
-    return this->sprites[this->currentSprite];
+sf::Texture Animation::getTexture() {
+    return this->frames[this->currentTexture];
 }
