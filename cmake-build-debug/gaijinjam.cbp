@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="gaijinjam"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\SFML\;CMake Files\SFML\lib\;CMake Files\SFML\lib\cmake\;CMake Files\SFML\lib\cmake\SFML\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Programms/Programm C++/GaijinJam/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gaijinjam">
+				<Option output="D:/Programms/Programm C++/GaijinJam/cmake-build-debug/gaijinjam.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Programms/Programm C++/GaijinJam/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/SFML/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 gaijinjam"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gaijinjam/fast">
+				<Option output="D:/Programms/Programm C++/GaijinJam/cmake-build-debug/gaijinjam.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Programms/Programm C++/GaijinJam/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/SFML/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 gaijinjam/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Programms/Programm C++/GaijinJam/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Programms/Programm C++/GaijinJam/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/Programms/Programm C++/GaijinJam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/headers/Animation.h">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/headers/Character.h">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/headers/GameObject.h">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/headers/Helper.h">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/headers/Player.h">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/headers/Wall.h">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/headers/constants.h">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/src/Animation.cpp">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/src/Character.cpp">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/src/Client.cpp">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/src/GameObject.cpp">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/src/Helper.cpp">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/src/Player.cpp">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/src/Wall.cpp">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/src/main.cpp">
+			<Option target="gaijinjam"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/SFML/lib/cmake/SFML/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\SFML\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/SFML/lib/cmake/SFML/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\SFML\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/SFML/lib/cmake/SFML/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\SFML\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/SFML/lib/cmake/SFML/SFMLSharedTargets-debug.cmake">
+			<Option virtualFolder="CMake Files\SFML\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/SFML/lib/cmake/SFML/SFMLSharedTargets-release.cmake">
+			<Option virtualFolder="CMake Files\SFML\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="D:/Programms/Programm C++/GaijinJam/SFML/lib/cmake/SFML/SFMLSharedTargets.cmake">
+			<Option virtualFolder="CMake Files\SFML\lib\cmake\SFML\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
