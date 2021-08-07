@@ -1,9 +1,9 @@
 #include "../headers/Wall.h"
 
-Wall::Wall(b2World &world, float x, float y, float w, float h) : GameObject(x, y ,w, h, GAME_OBJECT) {
+Wall::Wall(b2World &world, float x, float y, float w, float h) : GameObject(x, y, w, h, 0) {
     this->x = x;
     this->y = y;
-    this->world = &world;
+    this-> world = &world;
     b2BodyDef BodyDef;
     BodyDef.type = b2_staticBody;
     BodyDef.position = b2Vec2(x/ SCALE, y/SCALE);
@@ -11,9 +11,6 @@ Wall::Wall(b2World &world, float x, float y, float w, float h) : GameObject(x, y
 
     b2PolygonShape Shape;
     Shape.SetAsBox(w/SCALE, h/SCALE);
-
-    //Body->SetFixedRotation(true);
-    //Body->SetLinearDamping(10000);
 
     b2FixtureDef FixtureDef;
     FixtureDef.density = 1.0f;
