@@ -45,5 +45,4 @@ void Character::Update(float deltaTime) {
     this->setPosition(this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE);
     x = this->body->GetPosition().x * SCALE;
     y = this->body->GetPosition().y * SCALE;
-    GameObject::Update();
 }

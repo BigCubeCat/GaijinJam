@@ -44,6 +44,8 @@ int main(void) {
     Wall wall4(World, 1518, 535, 18, 82);
     Wall wall5(World, 1518, 815, 15, 70);
     Wall wall6(World, 1713, 843, 210, 42);
+    
+    Client client(World, 500, 100, 50, 50, 100, sf::Vector2f{800, 500}, false);
 
     Map.setTexture(MapTexture);
     while (Window.isOpen()) {
@@ -57,8 +59,10 @@ int main(void) {
         World.Step(1 / SCALE, 8, 3); // Update Box2D world
         Window.clear(sf::Color::White);
         player.Update(deltaTime);
-        Window.draw(Map);
+        client.Update(deltaTime);
+        Window.draw(client);
         Window.draw(player);
+        Window.draw(Map);
         Window.display();
     }
 }

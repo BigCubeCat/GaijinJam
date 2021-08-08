@@ -23,13 +23,4 @@ void GameObject::ReactToClass(int classType) {
 }
 
 void GameObject::Update() {
-    for (b2ContactEdge* ce = this->body->GetContactList(); ce; ce = ce->next) {
-        try{
-            int otherType = ce->other->GetUserData().pointer;
-            this->ReactToClass(otherType);
-        }
-        catch (...) {
-            std::cout << "ERROR\n";
-        }
-    }
 }

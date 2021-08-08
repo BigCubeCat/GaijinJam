@@ -8,6 +8,7 @@ Player::Player(
     ) : Character(world, x, y, PLAYER_DIAMETR, PLAYER_DIAMETR, 100, PLAYER_TYPE) {
     this->maxSpeed = PLAYER_SPEED;
     this->TypeIndex = PLAYER_TYPE;
+    this->body->GetUserData().pointer = this->TypeIndex;
 }
 
 

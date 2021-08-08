@@ -15,7 +15,7 @@ public:
 
 	GameObject(float x, float y, float w, float h, int typeIndex);
 	sf::Vector2f GetBodyPosition();
-	void Update();
+	virtual void Update();
 	void SetBody(b2Body *body);
-	void ReactToClass(int classType);
+	void ReactToClass(int);
 };

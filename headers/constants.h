@@ -6,10 +6,12 @@ const float SCALE = 30.f;
 const float PLAYER_SPEED = 4.0;
 const float PLAYER_DIAMETR = 50.0f;
 const float POINT_DISTANCE = 0.9;
+const char ALPHABET[3] = {'a', 'b', 'c'};
 
 // AI
 const float MINIMUM_FREE_TIME = 1.0f; // in seconds;
 const float MAXIMUM_FREE_TIME = 10.0f; // in seconds;
+const int ROTATE_PROBABILITY = 1;
 
 // physics
 const float ACCELERATION = 0.1;
