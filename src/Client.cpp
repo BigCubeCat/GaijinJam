@@ -8,12 +8,14 @@ Client::Client(
     float weight, sf::Vector2f lastPoint, int symIndex, bool masked
 ) : Character(world, x, y, w, h, weight) {
     this->lastPoint = lastPoint; 
-    this->masked = masked; 
+    this->masked = false; 
     char sym = 'a'; //ALPHABET[symIndex];
     
     std::string maskedTexture(1, sym);
     std::string noMaskedTexture(1, sym);
-    this->NoMask.loadFromFile("assets/characters/aN.png");
+    if (!this->NoMask.loadFromFile("assets/characters/aN.png")) {
+        std::cout << "SET TEXTURE FAILED\n";
+    }
     this->WithMask.loadFromFile("assets/characters/" + maskedTexture + "M.png");
     this->chooseWay();
     this->TypeIndex = CLIENT_TYPE;
@@ -23,6 +25,7 @@ Client::Client(
 }
 
 void Client::Update(float deltaTime) {
+    this->Move(this->xVector, this->yVector);
     if (this->masked) {
         this->setTexture(this->WithMask);
     } else {
@@ -32,10 +35,8 @@ void Client::Update(float deltaTime) {
         auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
         if (this->nearThePoint(this->lastPoint, pos)) {
         }
-         this->Move(
-            normalize(this->lastPoint.x - pos.x),
-            normalize(this->lastPoint.y - pos.y)
-        );
+        this->xVector = normalize(this->lastPoint.x - pos.x);
+        this->yVector = normalize(this->lastPoint.y - pos.y);
     } else {
         this->spendedTime += deltaTime;
         if (this->spendedTime > this->freeTime) {
@@ -45,7 +46,6 @@ void Client::Update(float deltaTime) {
         if (rand() % 100 <= ROTATE_PROBABILITY) {// меняем курс 
             this->chooseWay();
         }
-        this->Move(this->xVector, this->yVector);
 
     }
     for (b2ContactEdge* ce = this->body->GetContactList(); ce; ce = ce->next) {

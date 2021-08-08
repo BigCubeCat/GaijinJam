@@ -1,4 +1,5 @@
 #include "../headers/ClientController.h"
+#include <iostream>
 
 
 ClientController::ClientController(b2World &world) {
@@ -11,8 +12,12 @@ void ClientController::Update(float deltaTime) {
         this->spendedTime = 0.0f;
         this->SpawnClient();
     }
-    for (auto client : this->clients) {
-        client.Update(deltaTime);
+    for (int i = this->clients.size() - 1; i >= 0; i--) {
+        if (this->clients[i].needDestroy) {
+            this->clients.erase(this->clients.begin()+i);
+        } else {
+            this->clients[i].Update(deltaTime);
+        }
     }
 }
 

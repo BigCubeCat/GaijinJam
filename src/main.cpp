@@ -52,9 +52,11 @@ int main(void) {
         client.Update(deltaTime);
         Window.draw(client);
         int a = 0;
-        for (Client client : controller.clients) {
+        std::cout << player.getTexture() << std::endl;
+        for (Client c : controller.clients) {
             a++;
-            Window.draw(client);
+            Window.draw(c);
+            std::cout << c.getTexture();
         }
         std::cout << "count = " << a << std::endl;
         Window.draw(Map);
