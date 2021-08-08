@@ -12,9 +12,10 @@ const char ALPHABET[3] = {'a', 'b', 'c'};
 const float MINIMUM_FREE_TIME = 1.0f; // in seconds;
 const float MAXIMUM_FREE_TIME = 10.0f; // in seconds;
 const int ROTATE_PROBABILITY = 1;
+const float SPAWNER_TIME = 1.0f;
 
-// physics
-const float ACCELERATION = 0.1;
+// Physics
+const float ACCELERATION = 0.01;
 const float DEFAULT_DAMPING = 0.9f;
 const float DEFAULT_FRICTION = 0.1f;
 

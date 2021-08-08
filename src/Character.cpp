@@ -4,8 +4,8 @@
 
 Character::Character(
         b2World &world, float x, float y, 
-        float w, float h, float weight, int typeIndex
-    ) : GameObject(x, y, w, h, typeIndex) {
+        float w, float h, float weight
+    ) : GameObject(x, y, w, h) {
     this->world = &world;
     
     b2BodyDef BodyDef;

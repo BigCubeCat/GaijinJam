@@ -6,8 +6,10 @@ class Character : public GameObject {
 public:
     Character(
         b2World &world, float x, float y, 
-        float w, float h, float weight, int typeIndex
+        float w, float h, float weight
     );
+    sf::Texture withMask;
+    sf::Texture noMasked;
     float speed = 1.0f;
     bool stoped = true;
     float minSpeed = 1.0f;

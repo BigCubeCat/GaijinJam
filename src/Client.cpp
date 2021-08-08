@@ -5,18 +5,15 @@
 
 Client::Client(
     b2World &world, float x, float y, float w, float h, 
-    float weight, sf::Vector2f lastPoint, bool masked
-) : Character(world, x, y, w, h, weight, CLIENT_TYPE) {
+    float weight, sf::Vector2f lastPoint, int symIndex, bool masked
+) : Character(world, x, y, w, h, weight) {
     this->lastPoint = lastPoint; 
     this->masked = masked; 
-    std::cout << ALPHABET << std::endl;
-    std::cout << rand() << std::endl;
-    char sym = ALPHABET[rand() % sizeof(ALPHABET)];
+    char sym = 'a'; //ALPHABET[symIndex];
     
     std::string maskedTexture(1, sym);
     std::string noMaskedTexture(1, sym);
-    std::cout << maskedTexture;
-    this->NoMask.loadFromFile("assets/characters/" + noMaskedTexture + "N.png");
+    this->NoMask.loadFromFile("assets/characters/aN.png");
     this->WithMask.loadFromFile("assets/characters/" + maskedTexture + "M.png");
     this->chooseWay();
     this->TypeIndex = CLIENT_TYPE;
@@ -69,11 +66,9 @@ void Client::chooseWay() {
 void Client::ReactToClass(int typeIndex) {
     switch (typeIndex) {
         case PLAYER_TYPE:
-            std::cout << "FFFFFFFFFFFF\n";
             this->masked = true;
             break;
         case GAME_OBJECT:
-            std::cout << "G\n";
             this->rotateLeft();
             break;
     }

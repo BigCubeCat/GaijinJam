@@ -8,8 +8,9 @@
 #include <fstream>
 #pragma once
 
-int charToInt(std::string & line);
-void makeMap(std::string & path, std::list<Wall> & mainWallList, std::list <std::list<Wall>> & mapWallList);
+float charToInt(std::string & line);
+void makeMap(std::string path, int &mapNumber, std::list<Wall> & mainWallList, std::list <Wall> & mapWallList, b2World &world);
+float* makeArr(std::string line, float *mas);
 
 
 

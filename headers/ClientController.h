@@ -3,7 +3,14 @@
 
 class ClientController {
 public:
-    std::string fileName;
     int countClients;
-    ClientController(int count, std::string fileName);
+    float spendedTime;
+    float delayTime = SPAWNER_TIME;
+    std::vector<Client> clients;
+    std::vector<sf::Vector2f> despawnPoints;
+    std::vector<sf::Vector2f> spawnPoints;
+    b2World *world;
+    ClientController(b2World &world);
+    void Update(float deltaTime);
+    void SpawnClient();
 };

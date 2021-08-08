@@ -12,12 +12,30 @@ add_executable(gaijinjam src/main.cpp
     src/GameObject.cpp
     src/Player.cpp
     src/Wall.cpp
+    src/Wall.cpp 
+    src/Helper.cpp 
+    src/ClientController.cpp
+    headers/ClientController.h
     headers/Animation.h
     headers/Character.h
     headers/constants.h
     headers/GameObject.h
     headers/Player.h
-        src/Wall.cpp headers/Wall.h src/Helper.cpp headers/Helper.h)
+    headers/Wall.h 
+    headers/Helper.h
+    resources/maps.txt
+    assets/characters/playerM.png
+    assets/characters/playerW.png
+    assets/characters/aM.png
+    assets/characters/aN.png
+    assets/characters/bN.png
+    assets/characters/bM.png
+    assets/characters/cM.png
+    assets/characters/cN.png
+    assets/Map.png
+)
+
+
 
 target_link_libraries(gaijinjam sfml-graphics sfml-audio box2d)
 

@@ -1,7 +1,7 @@
 #include "../headers/GameObject.h"
 #include <iostream>
 
-GameObject::GameObject(float x, float y, float w, float h, int typeIndex=0) : sf::Sprite() {
+GameObject::GameObject(float x, float y, float w, float h) : sf::Sprite() {
     sf::Vector2f pos(x, y);
     this->TypeIndex = TypeIndex;
     this->position = pos;

@@ -13,7 +13,7 @@ public:
 	bool needDestroy = false;
 	b2Body *body;
 
-	GameObject(float x, float y, float w, float h, int typeIndex);
+	GameObject(float x, float y, float w, float h);
 	sf::Vector2f GetBodyPosition();
 	virtual void Update();
 	void SetBody(b2Body *body);

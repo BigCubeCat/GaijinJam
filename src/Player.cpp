@@ -5,14 +5,22 @@ using namespace std;
 
 Player::Player(
         b2World &world, int x, int y
-    ) : Character(world, x, y, PLAYER_DIAMETR, PLAYER_DIAMETR, 100, PLAYER_TYPE) {
+    ) : Character(world, x, y, PLAYER_DIAMETR, PLAYER_DIAMETR, 100) {
     this->maxSpeed = PLAYER_SPEED;
     this->TypeIndex = PLAYER_TYPE;
     this->body->GetUserData().pointer = this->TypeIndex;
+    this->masked = true;
+    this->withMask.loadFromFile("assets/characters/playerM.png");
+    this->noMasked.loadFromFile("assets/characters/playerW.png");
 }
 
 
 void Player::Update(float deltaTime) {
+    if (this->masked) {
+        this->setTexture(this->withMask);
+    } else {
+        this->setTexture(this->noMasked);
+    }
     this->Callback();
     this->Move(this->xSpeed, this->ySpeed);
     Character::Update(deltaTime);
