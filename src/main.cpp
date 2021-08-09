@@ -24,12 +24,17 @@ int main(void) {
     makeMap("resources/maps.txt", mapNumber, mainWallList, mapWallList, World);
     GameObject Map(50, 50, 1920, 1080);
     Map.setTexture(MapTexture);
-    Player player(World, 500, 500);
+    Map.setScale(0.5f, 0.5f);
+    Player player(World, 500, 500, Sensor(World, 500, 500, BLAST_RADIUS));
     ClientController controller(World);
     std::vector<sf::Vector2f> spawns;
     std::vector<sf::Vector2f> despawns;
-    spawns.push_back(sf::Vector2f{700, 500});
-    despawns.push_back(sf::Vector2f{0, 0});
+    spawns.push_back(sf::Vector2f{1000, 0});
+    despawns.push_back(sf::Vector2f{20, 500});
+    despawns.push_back(sf::Vector2f{500, 800});
+    despawns.push_back(sf::Vector2f{1000, 800});
+    despawns.push_back(sf::Vector2f{1900, 800});
+    despawns.push_back(sf::Vector2f{1900, 500});
     controller.spawnPoints = spawns;
     controller.despawnPoints = despawns;
     while (Window.isOpen()) {
