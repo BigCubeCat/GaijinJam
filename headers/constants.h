@@ -2,7 +2,7 @@
 #include <box2d/box2d.h>
 #include <SFML/Graphics.hpp>
 
-const float SCALE = 30.f; 
+const float SCALE = 120.f; 
 const float PLAYER_SPEED = 4.0;
 const float PLAYER_DIAMETR = 50.0f;
 const float POINT_DISTANCE = 0.9;
@@ -20,7 +20,7 @@ const float MINIMUM_SPEED = 1.0f;
 const float MAXIMUM_SPEED = 5.0f;
 const float DEFAULT_DAMPING = 0.9f;
 const float DEFAULT_FRICTION = 0.1f;
-
+const float DEFAULT_RESTITUTION = 1.0;
 // Type's id
 const int GAME_OBJECT = 0;
 const int PLAYER_TYPE = 1;

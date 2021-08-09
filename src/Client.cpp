@@ -20,7 +20,6 @@ Client::Client(
 }
 
 void Client::Update(float deltaTime) {
-    std::cout << this->xVector << " " << this->yVector << std::endl;
     this->Move(this->xVector, this->yVector);
     if (this->masked) {
         this->setTexture(this->WithMask);
@@ -28,25 +27,19 @@ void Client::Update(float deltaTime) {
         this->setTexture(this->NoMask);
     }
     if (this->goToShop) {
-        std::cout << "Going to shop\n";
         auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
         if (this->nearThePoint(this->lastPoint, pos)) {
-            std::cout << "суецид\n";
             this->needDestroy = true;
         }
         this->xVector = normalize(this->lastPoint.x - pos.x);
         this->yVector = normalize(this->lastPoint.y - pos.y);
-        std::cout << this->xVector << " " << this->yVector << std::endl;
     } else {
-        std::cout << "STEP\n";
         this->spendedTime += deltaTime;
         if (this->spendedTime > this->freeTime) {
-            std::cout << "Время пришло\n";
             this->goToShop = true;
             return;
         }
         if (rand() % 100 <= ROTATE_PROBABILITY) {// меняем курс 
-            std::cout << "HERE?\n";
             this->chooseWay();
         }
     }
@@ -63,8 +56,6 @@ bool Client::nearThePoint(sf::Vector2f pos, sf::Vector2f point) {
 void Client::chooseWay() {
     this->xVector = (float)(rand() % 21 - 10) / 10;
     this->yVector = (float)(rand() % 21 - 10) / 10;
-    std::cout << "xVector = " << this->xVector << std::endl;
-    std::cout << "yVector = " << this->yVector << std::endl;
 }
 
 void Client::ReactToClass(int typeIndex) {
@@ -73,8 +64,6 @@ void Client::ReactToClass(int typeIndex) {
             this->masked = true;
             break;
         case GAME_OBJECT:
-            std::cout << "ROTATE\n";
-            this->rotateLeft();
             break;
     }
 }

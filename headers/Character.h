@@ -3,6 +3,8 @@
 #include <box2d/box2d.h>
 
 class Character : public GameObject {
+private:
+    float mass;
 public:
     Character(
         b2World &world, float x, float y, 

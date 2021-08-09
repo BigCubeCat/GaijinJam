@@ -7,6 +7,7 @@ Character::Character(
         float w, float h, float weight
     ) : GameObject(x, y, w, h) {
     this->world = &world;
+    this->mass = weight;
     
     b2BodyDef BodyDef;
     BodyDef.position = b2Vec2(x / SCALE, y / SCALE);
@@ -24,6 +25,7 @@ Character::Character(
     FixtureDef.density = weight;
     FixtureDef.friction = DEFAULT_FRICTION;
     FixtureDef.shape = &Shape;
+    FixtureDef.restitution = DEFAULT_RESTITUTION;
     Body->CreateFixture(&FixtureDef);
     Body->SetBullet(true);
     this->SetBody(Body);
@@ -35,7 +37,8 @@ void Character::Move(float x, float y) {
     if (this->stoped) this->speed = minSpeed;
     // setup acceleration
     if (speed + ACCELERATION > maxSpeed) this->speed = maxSpeed; else this->speed = speed + ACCELERATION;
-    this->body->SetLinearVelocity(b2Vec2{x * this->speed, y * this->speed});
+    //this->body->SetLinearVelocity(b2Vec2{x * this->speed, y * this->speed});
+    this->body->ApplyForceToCenter(b2Vec2{x * this->speed * this->mass, y * this->speed * this->mass}, true);
     //s:td::cout << "speed = " << this->speed << std::endl;
     //std::cout << x * this->speed << " " << y * this->speed << std::endl;
     this->stoped = x == 0 && y == 0;

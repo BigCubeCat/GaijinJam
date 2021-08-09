@@ -26,7 +26,7 @@ void ClientController::Update(float deltaTime) {
 void ClientController::SpawnClient() {
     auto spawn = this->spawnPoints[rand() % this->spawnPoints.size()];
     auto despawn = this->despawnPoints[rand() % this->despawnPoints.size()];
-    Client newClient(*this->world, spawn.x, spawn.y, 50, 50, 50, despawn, this->clients.size() % 3, false);
+    Client newClient(*this->world, spawn.x, spawn.y, 50, 50, rand() % 300 + 50, despawn, this->clients.size() % 3, false);
     newClient.freeTime = MAXIMUM_FREE_TIME;
     this->clients.push_back(newClient);
 }
