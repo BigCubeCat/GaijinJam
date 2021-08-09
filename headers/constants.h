@@ -23,7 +23,7 @@ const float DEFAULT_DAMPING = 0.9f;
 const float DEFAULT_FRICTION = 0.0f;
 const float DEFAULT_RESTITUTION = 0.8;
 const float BLAST_RADIUS = 52.0f;
-const float BLAST_POWER = 10000.0f; 
+const float BLAST_POWER = 100.0f; 
 
 // Type's id
 const int GAME_OBJECT = 0;

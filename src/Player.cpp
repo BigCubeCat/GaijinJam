@@ -61,7 +61,7 @@ void Player::FindBlastedObjects() {
     for (auto b : this->sensor.DetectedBodies()) {
         if (b == this->body) continue;
         a++;
-        b2Vec2 dir = this->body->GetPosition() - b->GetPosition();
+        b2Vec2 dir = b->GetPosition() - this->body->GetPosition();
         this->Blast(b, dir, BLAST_POWER);
     }
     std::cout << "b = " << a << std::endl;
