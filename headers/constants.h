@@ -6,16 +6,18 @@ const float SCALE = 30.f;
 const float PLAYER_SPEED = 4.0;
 const float PLAYER_DIAMETR = 50.0f;
 const float POINT_DISTANCE = 0.9;
-const char ALPHABET[3] = {'a', 'b', 'c'};
+const std::string ALPHABET = "abc";
 
 // AI
 const float MINIMUM_FREE_TIME = 1.0f; // in seconds;
 const float MAXIMUM_FREE_TIME = 10.0f; // in seconds;
 const int ROTATE_PROBABILITY = 1;
-const float SPAWNER_TIME = 1.0f;
+const float SPAWNER_TIME = 10.0f;
 
 // Physics
-const float ACCELERATION = 0.01;
+const float ACCELERATION = 0.1;
+const float MINIMUM_SPEED = 1.0f;
+const float MAXIMUM_SPEED = 5.0f;
 const float DEFAULT_DAMPING = 0.9f;
 const float DEFAULT_FRICTION = 0.1f;
 

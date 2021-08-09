@@ -30,10 +30,14 @@ Character::Character(
 }
 
 void Character::Move(float x, float y) {
+    // x, y кривые на входе!!!
+    //std::cout << "Vector = " << x << " " << y << std::endl;
     if (this->stoped) this->speed = minSpeed;
     // setup acceleration
     if (speed + ACCELERATION > maxSpeed) this->speed = maxSpeed; else this->speed = speed + ACCELERATION;
     this->body->SetLinearVelocity(b2Vec2{x * this->speed, y * this->speed});
+    //s:td::cout << "speed = " << this->speed << std::endl;
+    //std::cout << x * this->speed << " " << y * this->speed << std::endl;
     this->stoped = x == 0 && y == 0;
 }
 
@@ -43,6 +47,6 @@ void Character::Update(float deltaTime) {
         //this->setTexture(this->animation.getTexture());
     }
     this->setPosition(this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE);
-    x = this->body->GetPosition().x * SCALE;
-    y = this->body->GetPosition().y * SCALE;
+    //x = this->body->GetPosition().x * SCALE;
+    //y = this->body->GetPosition().y * SCALE;
 }

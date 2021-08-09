@@ -28,13 +28,10 @@ int main(void) {
     ClientController controller(World);
     std::vector<sf::Vector2f> spawns;
     std::vector<sf::Vector2f> despawns;
-    spawns.push_back(sf::Vector2f{100, 100});
     spawns.push_back(sf::Vector2f{700, 500});
-    despawns.push_back(sf::Vector2f{400, 400});
-    despawns.push_back(sf::Vector2f{300, 300});
+    despawns.push_back(sf::Vector2f{0, 0});
     controller.spawnPoints = spawns;
     controller.despawnPoints = despawns;
-    Client client(World, 100, 100, 50, 50, 100, sf::Vector2f{300, 300}, 0, false);
     while (Window.isOpen()) {
         sf::Event event;
         while (Window.pollEvent(event)) {
@@ -49,16 +46,12 @@ int main(void) {
         controller.Update(deltaTime);
         player.Update(deltaTime);
         Window.draw(player);
-        client.Update(deltaTime);
-        Window.draw(client);
         int a = 0;
-        std::cout << player.getTexture() << std::endl;
         for (Client c : controller.clients) {
             a++;
             Window.draw(c);
-            std::cout << c.getTexture();
         }
-        std::cout << "count = " << a << std::endl;
+        //std::cout << a << std::endl;
         Window.draw(Map);
         Window.display();
     }

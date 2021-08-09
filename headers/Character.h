@@ -12,8 +12,8 @@ public:
     sf::Texture noMasked;
     float speed = 1.0f;
     bool stoped = true;
-    float minSpeed = 1.0f;
-    float maxSpeed = 10.0f;
+    float minSpeed = MINIMUM_SPEED;
+    float maxSpeed = MAXIMUM_SPEED;
     b2World *world;
     bool animated = true; // TODO delete, when animation be ready
     std::string current_animation;
