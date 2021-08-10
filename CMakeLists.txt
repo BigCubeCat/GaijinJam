@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 
+include_directories("assets")
+
 add_executable(gaijinjam src/main.cpp
     src/Animation.cpp
     src/Character.cpp
@@ -26,15 +28,6 @@ add_executable(gaijinjam src/main.cpp
     headers/Wall.h 
     headers/Helper.h
     resources/maps.txt
-    assets/characters/playerM.png
-    assets/characters/playerW.png
-    assets/characters/aM.png
-    assets/characters/aN.png
-    assets/characters/bN.png
-    assets/characters/bM.png
-    assets/characters/cM.png
-    assets/characters/cN.png
-    assets/Map.png
 )
 
 

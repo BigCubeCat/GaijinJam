@@ -10,7 +10,8 @@ public:
     std::vector<sf::Vector2f> despawnPoints;
     std::vector<sf::Vector2f> spawnPoints;
     b2World *world;
-    ClientController(b2World &world);
+    sf::RenderWindow *window;
+    ClientController(b2World &world, sf::RenderWindow &window);
     void Update(float deltaTime);
     void SpawnClient();
 };

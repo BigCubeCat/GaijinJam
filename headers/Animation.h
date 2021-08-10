@@ -1,13 +1,16 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+using namespace std;
 
 class Animation {
+private:
+    float spendedTime = 0;
+    pair<int, float> getFrame();
 public:
-    int countTexture = 0;
+    string currentAnimation;
     int currentTexture = 0;
-    std::vector<sf::Texture> frames;
-    void setTextures(std::vector<sf::Texture>);
-    void Tick();
-    sf::Texture getTexture();
+    map<string, vector<pair<int, float>>> frames;
+    void Tick(float);
+    int GetTexture();
 };

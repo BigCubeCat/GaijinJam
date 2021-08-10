@@ -7,8 +7,6 @@ private:
     float yVector, xVector;
     float changeWayProbability;
     void rotateLeft();
-    sf::Texture NoMask;
-    sf::Texture WithMask;
 public:
     float freeTime;
     bool goToShop = false;

@@ -1,13 +1,17 @@
 #include "../headers/Animation.h"
 
-void Animation::setTextures(std::vector<sf::Texture> sp) {
-    this->frames = sp;
+void Animation::Tick(float deltaTime) {
+    this->spendedTime += deltaTime;
+    if (this->getFrame().second <= this->spendedTime) {
+        this->spendedTime = 0.0f;
+        this->currentTexture = (this->currentTexture + 1) % this->frames[this->currentAnimation].size();
+    }
 }
 
-void Animation::Tick() {
-    this->currentTexture = (this->currentTexture + 1) % this->countTexture;
+int Animation::GetTexture() {
+    return this->getFrame().first;
 }
 
-sf::Texture Animation::getTexture() {
-    return this->frames[this->currentTexture];
+pair<int, float> Animation::getFrame() {
+    return this->frames[this->currentAnimation][this->currentTexture];
 }

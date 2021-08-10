@@ -17,16 +17,19 @@ int main(void) {
     sf::Clock clock;
     Window.setFramerateLimit(60);
     sf::Texture MapTexture;
+    sf::Texture bgTexture;
     MapTexture.loadFromFile("assets/Map.png");
+    bgTexture.loadFromFile("assets/bg.png");
     std::list<Wall> mainWallList;
     std::list<Wall> mapWallList;
     int mapNumber = 1;
     makeMap("resources/maps.txt", mapNumber, mainWallList, mapWallList, World);
+    GameObject BG(50, 50, 1920, 1080);
     GameObject Map(50, 50, 1920, 1080);
     Map.setTexture(MapTexture);
     Map.setScale(0.5f, 0.5f);
     Player player(World, 500, 500, Sensor(World, 500, 500, BLAST_RADIUS));
-    ClientController controller(World);
+    ClientController controller(World, Window);
     std::vector<sf::Vector2f> spawns;
     std::vector<sf::Vector2f> despawns;
     spawns.push_back(sf::Vector2f{1000, 0});
@@ -37,6 +40,10 @@ int main(void) {
     despawns.push_back(sf::Vector2f{1900, 500});
     controller.spawnPoints = spawns;
     controller.despawnPoints = despawns;
+
+    Client newClient(World, 100, 100, 50, 50, rand() % 300 + 50, sf::Vector2f{200, 200}, 0, false);
+    newClient.freeTime = MAXIMUM_FREE_TIME;
+
     while (Window.isOpen()) {
         sf::Event event;
         while (Window.pollEvent(event)) {
@@ -47,16 +54,16 @@ int main(void) {
         float deltaTime = clock.getElapsedTime().asSeconds();
         clock.restart();
 
-        Window.clear(sf::Color::White);
+        Window.clear(sf::Color::Black);
         controller.Update(deltaTime);
         player.Update(deltaTime);
         Window.draw(player);
-        int a = 0;
-        for (Client c : controller.clients) {
-            a++;
+        newClient.Update(deltaTime);
+        Window.draw(newClient);
+
+        for (auto c : controller.clients) {
             Window.draw(c);
         }
-        //std::cout << a << std::endl;
         Window.draw(Map);
         Window.display();
     }

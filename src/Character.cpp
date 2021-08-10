@@ -29,27 +29,44 @@ Character::Character(
     Body->CreateFixture(&FixtureDef);
     Body->SetBullet(true);
     this->SetBody(Body);
+    this->animation.currentAnimation = this->masked ? "masked" : "free";
 }
 
 void Character::Move(float x, float y) {
-    // x, y кривые на входе!!!
-    //std::cout << "Vector = " << x << " " << y << std::endl;
     if (this->stoped) this->speed = minSpeed;
-    // setup acceleration
     if (speed + ACCELERATION > maxSpeed) this->speed = maxSpeed; else this->speed = speed + ACCELERATION;
-    //this->body->SetLinearVelocity(b2Vec2{x * this->speed, y * this->speed});
     this->body->ApplyForceToCenter(b2Vec2{x * this->speed * this->mass, y * this->speed * this->mass}, true);
-    //s:td::cout << "speed = " << this->speed << std::endl;
-    //std::cout << x * this->speed << " " << y * this->speed << std::endl;
     this->stoped = x == 0 && y == 0;
 }
 
 void Character::Update(float deltaTime) {
-    if (this->animated) {
-        //this->animation.Tick();
-        //this->setTexture(this->animation.getTexture());
-    }
     this->setPosition(this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE);
-    //x = this->body->GetPosition().x * SCALE;
-    //y = this->body->GetPosition().y * SCALE;
+    this->setTexture(*this->allTextures[this->animation.GetTexture()]);
+}
+
+void Character::InitAnimation(std::string path) {
+    this->NoMaskA.loadFromFile(path + "na.png");
+    this->NoMaskB.loadFromFile(path + "nb.png");
+    this->WithMaskA.loadFromFile(path + "ma.png");
+    this->WithMaskB.loadFromFile(path + "mb.png");
+
+    this->allTextures[0] = &NoMaskA;
+    this->allTextures[1] = &NoMaskB;
+    this->allTextures[2] = &WithMaskA;
+    this->allTextures[3] = &WithMaskB;
+
+    vector<pair<int, float>> animMasked;
+    vector<pair<int, float>> animNotMask;
+    pair<int, float> noMaskedA(0, NO_BLINKED_TIME);
+    pair<int, float> noMaskedB(1, BLINKED_TIME);
+    pair<int, float> maskedA(2, NO_BLINKED_TIME);
+    pair<int, float> maskedB(3, BLINKED_TIME);
+     
+    animMasked.push_back(maskedA);
+    animMasked.push_back(maskedB);
+    
+    animNotMask.push_back(noMaskedA);
+    animNotMask.push_back(noMaskedB);
+
+    this->animation.frames = {{"masked", animMasked}, {"free", animNotMask}};
 }

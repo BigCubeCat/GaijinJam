@@ -5,27 +5,22 @@ using namespace std;
 
 Player::Player(
         b2World &world, int x, int y, Sensor sensor
-        ) : Character(world, x, y, PLAYER_DIAMETR, PLAYER_DIAMETR, PLAYER_MASS),
+    ) : Character(world, x, y, PLAYER_DIAMETR, PLAYER_DIAMETR, PLAYER_MASS),
                                                               sensor(sensor) {
     this->maxSpeed = PLAYER_SPEED;
     this->TypeIndex = PLAYER_TYPE;
     this->body->GetUserData().pointer = this->TypeIndex;
     this->masked = true;
-    this->withMask.loadFromFile("assets/characters/playerM.png");
-    this->noMasked.loadFromFile("assets/characters/playerW.png");
     this->sensor = sensor;
+    this->InitAnimation("assets/characters/P");
 }
-
 
 void Player::Update(float deltaTime) {
     this->sensor.body->SetTransform(this->body->GetPosition(), 0);
-    if (this->masked) {
-        this->setTexture(this->withMask);
-    } else {
-        this->setTexture(this->noMasked);
-    }
     this->Callback();
     this->Move(this->xSpeed, this->ySpeed);
+    this->animation.currentAnimation = this->masked ? "masked" : "free";
+    this->animation.Tick(deltaTime);
     Character::Update(deltaTime);
 }
 
@@ -53,7 +48,7 @@ void Player::Blast(b2Body* body, b2Vec2 blastDir, float blastPower) {
     std::cout << blastDir.x << " " << blastDir.y << std::endl;
     blastDir.x *= blastPower;
     blastDir.y *= blastPower;
-      body->ApplyLinearImpulseToCenter(blastDir, true);
+    body->ApplyLinearImpulseToCenter(blastDir, true);
 }
 
 void Player::FindBlastedObjects() {

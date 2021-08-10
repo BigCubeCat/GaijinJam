@@ -11,21 +11,15 @@ Client::Client(
     this->masked = false; 
     std::string path = "assets/characters/";
     path.push_back(ALPHABET[symIndex]);
-    
-    this->NoMask.loadFromFile(path + "N.png");
-    this->WithMask.loadFromFile(path + "M.png");
-    this->chooseWay();
     this->TypeIndex = CLIENT_TYPE;
     this->body->GetUserData().pointer = this->TypeIndex;
+    this->chooseWay();
+    this->InitAnimation(path);
+    this->setTexture(*this->allTextures[this->animation.GetTexture()]);
 }
 
 void Client::Update(float deltaTime) {
     this->Move(this->xVector, this->yVector);
-    if (this->masked) {
-        this->setTexture(this->WithMask);
-    } else {
-        this->setTexture(this->NoMask);
-    }
     if (this->goToShop) {
         auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
         if (this->nearThePoint(this->lastPoint, pos)) {
@@ -46,6 +40,8 @@ void Client::Update(float deltaTime) {
     for (b2ContactEdge* ce = this->body->GetContactList(); ce; ce = ce->next) {
         this->ReactToClass(ce->other->GetUserData().pointer);
     }
+    this->animation.currentAnimation = this->masked ? "masked" : "free";
+    this->animation.Tick(deltaTime);
     Character::Update(deltaTime);
 }
 
