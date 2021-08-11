@@ -3,7 +3,6 @@
 
 class ClientController {
 public:
-    int countClients;
     float spendedTime;
     float delayTime = SPAWNER_TIME;
     std::vector<Client> clients;
@@ -14,4 +13,5 @@ public:
     ClientController(b2World &world, sf::RenderWindow &window);
     void Update(float deltaTime);
     void SpawnClient();
+    void Draw(sf::RenderWindow &window);
 };

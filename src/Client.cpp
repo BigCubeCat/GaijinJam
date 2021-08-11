@@ -7,17 +7,32 @@ Client::Client(
     b2World &world, float x, float y, float w, float h, 
     float weight, sf::Vector2f lastPoint, int symIndex, bool masked
 ) : Character(world, x, y, w, h, weight) {
-    this->lastPoint = lastPoint; 
     this->masked = false; 
+    //this->animation.currentAnimation = this->masked ? "free" : "masked";
+    this->lastPoint = lastPoint; 
     std::string path = "assets/characters/";
-    path.push_back(ALPHABET[symIndex]);
+    path.push_back(ALPHABET[0]);
     this->TypeIndex = CLIENT_TYPE;
     this->body->GetUserData().pointer = this->TypeIndex;
     this->chooseWay();
     this->InitAnimation(path);
-    this->setTexture(*this->allTextures[this->animation.GetTexture()]);
+    std::cout << "0 = " << this->allTextures[0] << std::endl;
+    std::cout << "1 = " << this->allTextures[1] << std::endl;
+    std::cout << "2 = " << this->allTextures[2] << std::endl;
+    std::cout << "3 = " << this->allTextures[3] << std::endl << std::endl;
+    std::cout << &this->NoMaskA << std::endl;
+    std::cout << &this->NoMaskB << std::endl;
+    std::cout << &this->WithMaskA << std::endl;
+    std::cout << &this->WithMaskB << std::endl << std::endl;
+    //this->setTexture(*this->allTextures[this->animation.GetTexture()]);
 }
-
+/*
+Client::Client(const Client &client) {
+    this->masked = client.masked;
+    this->lastPoint = client.lastPoint;
+    this->allTextures[0] = &client.NoMaskA;
+}
+*/
 void Client::Update(float deltaTime) {
     this->Move(this->xVector, this->yVector);
     if (this->goToShop) {

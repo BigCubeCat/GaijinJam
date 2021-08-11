@@ -69,4 +69,5 @@ void Character::InitAnimation(std::string path) {
     animNotMask.push_back(noMaskedB);
 
     this->animation.frames = {{"masked", animMasked}, {"free", animNotMask}};
+    this->setTexture(*this->allTextures[this->animation.GetTexture()]);
 }

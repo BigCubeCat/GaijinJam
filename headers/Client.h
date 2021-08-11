@@ -12,10 +12,8 @@ public:
     bool goToShop = false;
     bool masked = false;
     sf::Vector2f lastPoint;
-    Client(
-        b2World &world, float x, float y, float w, float h, 
-        float weight, sf::Vector2f lastPoint, int symIndex, bool masked
-    );
+    Client(b2World &world, float x, float y, float w, float h, float weight, sf::Vector2f lastPoint, int symIndex, bool masked);
+    //Client(const Client &client);
     void ReactToClass(int);
     void Update(float deltaTime);
     void chooseWay();

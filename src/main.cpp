@@ -27,7 +27,6 @@ int main(void) {
     GameObject BG(50, 50, 1920, 1080);
     GameObject Map(50, 50, 1920, 1080);
     Map.setTexture(MapTexture);
-    Map.setScale(0.5f, 0.5f);
     Player player(World, 500, 500, Sensor(World, 500, 500, BLAST_RADIUS));
     ClientController controller(World, Window);
     std::vector<sf::Vector2f> spawns;
@@ -56,14 +55,11 @@ int main(void) {
 
         Window.clear(sf::Color::Black);
         controller.Update(deltaTime);
+        controller.Draw(Window);
         player.Update(deltaTime);
         Window.draw(player);
         newClient.Update(deltaTime);
         Window.draw(newClient);
-
-        for (auto c : controller.clients) {
-            Window.draw(c);
-        }
         Window.draw(Map);
         Window.display();
     }

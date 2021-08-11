@@ -6,7 +6,7 @@ const float SCALE = 120.f;
 const float PLAYER_SPEED = 1.0;
 const float PLAYER_DIAMETR = 50.0f;
 const float POINT_DISTANCE = 10.0f;
-const std::string ALPHABET = "abc";
+const std::string ALPHABET = "abcdefjhijklmn";
 const float PLAYER_MASS = 250.0f;
 
 // AI
