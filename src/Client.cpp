@@ -7,10 +7,10 @@ Client::Client(
     b2World &world, float x, float y, float w, float h, 
     float weight, sf::Vector2f lastPoint, int symIndex, bool masked
 ) : Character(world, x, y, w, h, weight) {
-    this->masked = false; 
+    this->masked = false;
     //this->animation.currentAnimation = this->masked ? "free" : "masked";
-    this->lastPoint = lastPoint; 
-    std::string path = "assets/characters/";
+    this->lastPoint = lastPoint;
+    std::string path = "../assets/characters/";
     path.push_back(ALPHABET[0]);
     this->TypeIndex = CLIENT_TYPE;
     this->body->GetUserData().pointer = this->TypeIndex;
@@ -75,6 +75,7 @@ void Client::ReactToClass(int typeIndex) {
             this->masked = true;
             break;
         case GAME_OBJECT:
+            this->rotateLeft();
             break;
     }
 }

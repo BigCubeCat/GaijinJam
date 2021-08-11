@@ -17,7 +17,7 @@ void ClientController::Update(float deltaTime) {
     for (int i = this->clients.size() - 1; i >= 0; i--) {
         if (this->clients[i].needDestroy) {
             this->world->DestroyBody(this->clients[i].body);
-            this->clients.erase(this->clients.begin()+i);
+            this->clients.erase(this->clients.begin()+(int)i);
         } else {
             this->clients[i].Update(deltaTime);
         }
@@ -32,11 +32,11 @@ void ClientController::SpawnClient() {
         5, false
     );
     newClient.freeTime = MAXIMUM_FREE_TIME;
-    this->clients.push_back(newClient);
+    this->clients.emplace_back(newClient);
 }
 
 void ClientController::Draw(sf::RenderWindow &window) {
-    for (Client c : this->clients) {
+    for (const Client& c : this->clients) {
         window.draw(c);
     }
 }

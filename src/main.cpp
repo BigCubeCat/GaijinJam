@@ -3,9 +3,12 @@
 #include "../headers/Wall.h"
 #include "../headers/Helper.h"
 #include "../headers/ClientController.h"
+#include "../headers/FPS.h"
 #include <iostream>
 #include <list>
 #include <map>
+#include <sstream>
+
 
 
 b2Vec2 Gravity(0.f, 0.0f);
@@ -18,12 +21,12 @@ int main(void) {
     Window.setFramerateLimit(60);
     sf::Texture MapTexture;
     sf::Texture bgTexture;
-    MapTexture.loadFromFile("assets/Map.png");
-    bgTexture.loadFromFile("assets/bg.png");
+    MapTexture.loadFromFile("../assets/Map.png");
+    bgTexture.loadFromFile("../assets/bg.png");
     std::list<Wall> mainWallList;
     std::list<Wall> mapWallList;
     int mapNumber = 1;
-    makeMap("resources/maps.txt", mapNumber, mainWallList, mapWallList, World);
+    makeMap("../resources/maps.txt", mapNumber, mainWallList, mapWallList, World);
     GameObject BG(50, 50, 1920, 1080);
     GameObject Map(50, 50, 1920, 1080);
     Map.setTexture(MapTexture);
@@ -31,15 +34,15 @@ int main(void) {
     ClientController controller(World, Window);
     std::vector<sf::Vector2f> spawns;
     std::vector<sf::Vector2f> despawns;
-    spawns.push_back(sf::Vector2f{1000, 0});
-    despawns.push_back(sf::Vector2f{20, 500});
-    despawns.push_back(sf::Vector2f{500, 800});
-    despawns.push_back(sf::Vector2f{1000, 800});
-    despawns.push_back(sf::Vector2f{1900, 800});
-    despawns.push_back(sf::Vector2f{1900, 500});
+    spawns.emplace_back(sf::Vector2f{1000, 0});
+    despawns.emplace_back(sf::Vector2f{20, 500});
+    despawns.emplace_back(sf::Vector2f{500, 800});
+    despawns.emplace_back(sf::Vector2f{1000, 800});
+    despawns.emplace_back(sf::Vector2f{1900, 800});
+    despawns.emplace_back(sf::Vector2f{1900, 500});
     controller.spawnPoints = spawns;
     controller.despawnPoints = despawns;
-
+    FPS fps;
     Client newClient(World, 100, 100, 50, 50, rand() % 300 + 50, sf::Vector2f{200, 200}, 0, false);
     newClient.freeTime = MAXIMUM_FREE_TIME;
 
@@ -62,5 +65,9 @@ int main(void) {
         Window.draw(newClient);
         Window.draw(Map);
         Window.display();
+        fps.update();
+        std::ostringstream ss;
+        ss << fps.getFPS();
+        Window.setTitle(ss.str());
     }
 }

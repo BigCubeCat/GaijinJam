@@ -12,7 +12,7 @@ Player::Player(
     this->body->GetUserData().pointer = this->TypeIndex;
     this->masked = true;
     this->sensor = sensor;
-    this->InitAnimation("assets/characters/P");
+    this->InitAnimation("../assets/characters/P");
 }
 
 void Player::Update(float deltaTime) {

@@ -3,7 +3,7 @@
 class Client : public Character {
 private:
     float normalize(int);
-    float spendedTime = 0.0f;
+    float spendedTime;
     float yVector, xVector;
     float changeWayProbability;
     void rotateLeft();
