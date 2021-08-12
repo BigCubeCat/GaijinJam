@@ -3,7 +3,7 @@
 
 class ClientController {
 public:
-    float spendedTime;
+    float spendedTime{};
     float delayTime = SPAWNER_TIME;
     std::vector<Client> clients;
     std::vector<sf::Vector2f> despawnPoints;

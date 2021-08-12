@@ -14,6 +14,7 @@ public:
 	b2Body *body;
 
 	GameObject(float x, float y, float w, float h);
+	//GameObject(const GameObject &obj);
 	sf::Vector2f GetBodyPosition();
 	virtual void Update();
 	void SetBody(b2Body *body);

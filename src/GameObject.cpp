@@ -8,7 +8,14 @@ GameObject::GameObject(float x, float y, float w, float h) : sf::Sprite() {
     this->height = h;
     this->width = w;
 }
-
+/*
+GameObject::GameObject(const GameObject &obj) {
+    this->TypeIndex = obj.TypeIndex;
+    this->position = obj.position;
+    this->height = obj.height;
+    this->width = obj.width;
+}
+*/
 sf::Vector2f GameObject::GetBodyPosition() {
     return sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
 }
