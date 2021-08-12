@@ -48,3 +48,9 @@ float* makeArr(std::string  line, float *mas){
     }
     return mas;
 }
+
+float distance(sf::Vector2f a, sf::Vector2f b) {
+    float deltaX = a.x - b.x;
+    float deltaY = a.y - b.y;
+    return (deltaX * deltaX) + (deltaY * deltaY);
+}

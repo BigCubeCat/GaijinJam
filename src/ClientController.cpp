@@ -26,17 +26,16 @@ void ClientController::Update(float deltaTime) {
 
 void ClientController::SpawnClient() {
     auto spawn = this->spawnPoints[rand() % this->spawnPoints.size()];
-    auto despawn = this->despawnPoints[rand() % this->despawnPoints.size()];
     auto *newClient = new Client(*this->world,
-        spawn.x, spawn.y, 50, 50, rand() % 200 + 50, despawn, 
+        spawn.x, spawn.y, 50, 50, rand() % 200 + 50, this->despawnPoints, 
         rand() % 14, false
     );
     newClient->freeTime = MAXIMUM_FREE_TIME;
     this->clients.emplace_back(*newClient);
 }
 
-void ClientController::Draw(sf::RenderWindow &window) {
+void ClientController::Draw() {
     for (const Client& c : this->clients) {
-        window.draw(c);
+        this->window->draw(c);
     }
 }

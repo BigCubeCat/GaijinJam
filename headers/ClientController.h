@@ -13,5 +13,5 @@ public:
     ClientController(b2World &world, sf::RenderWindow &window);
     void Update(float deltaTime);
     void SpawnClient();
-    void Draw(sf::RenderWindow &window);
+    void Draw();
 };

@@ -35,7 +35,9 @@ int main(void) {
     ClientController controller(World, Window);
     std::vector<sf::Vector2f> spawns;
     std::vector<sf::Vector2f> despawns;
-    spawns.emplace_back(sf::Vector2f{1000, 0});
+    spawns.emplace_back(sf::Vector2f{1000, 75});
+    spawns.emplace_back(sf::Vector2f{900, 75});
+    spawns.emplace_back(sf::Vector2f{1200, 75});
     despawns.emplace_back(sf::Vector2f{20, 500});
     despawns.emplace_back(sf::Vector2f{500, 800});
     despawns.emplace_back(sf::Vector2f{1000, 800});
@@ -58,7 +60,7 @@ int main(void) {
         Window.clear(sf::Color::Black);
         Window.draw(BG);
         controller.Update(deltaTime);
-        controller.Draw(Window);
+        controller.Draw();
         player.Update(deltaTime);
         Window.draw(player);
         Window.draw(Map);

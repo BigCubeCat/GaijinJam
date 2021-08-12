@@ -1,5 +1,5 @@
 mainwall: 25 540 1 540
-mainwall: 960 25 960 1
+mainwall: 960 25 960 50
 mainwall: 1920 540 1 540
 mainwall: 960 1060 960 1
 firstmap_wall: 210 258 130 28

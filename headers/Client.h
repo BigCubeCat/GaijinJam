@@ -6,14 +6,14 @@ private:
     float spendedTime;
     float yVector, xVector;
     float changeWayProbability;
-    void rotateLeft();
     std::string path;
 public:
     float freeTime;
     bool goToShop = false;
     bool masked = false;
-    sf::Vector2f lastPoint;
-    Client(b2World &world, float x, float y, float w, float h, float weight, sf::Vector2f lastPoint, int symIndex, bool masked);
+    sf::Vector2f currentPoint;
+    std::vector<sf::Vector2f> lastPoints;
+    Client(b2World &world, float x, float y, float w, float h, float weight, std::vector<sf::Vector2f> lastPoint, int symIndex, bool masked);
    // Client(const Client &client);
     void ReactToClass(int);
     void Update(float deltaTime);

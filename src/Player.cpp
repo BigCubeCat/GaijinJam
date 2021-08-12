@@ -7,6 +7,7 @@ Player::Player(
         b2World &world, int x, int y, Sensor sensor
     ) : Character(world, x, y, PLAYER_DIAMETR, PLAYER_DIAMETR, PLAYER_MASS),
                                                               sensor(sensor) {
+    this->minSpeed = PLAYER_START_SPEED;
     this->maxSpeed = PLAYER_SPEED;
     this->TypeIndex = PLAYER_TYPE;
     this->body->GetUserData().pointer = this->TypeIndex;
