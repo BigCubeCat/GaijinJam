@@ -22,7 +22,7 @@ int main(void) {
     sf::Texture MapTexture;
     sf::Texture bgTexture;
     MapTexture.loadFromFile("../assets/Map.png");
-    bgTexture.loadFromFile("../assets/bg.png");
+    bgTexture.loadFromFile("../assets/floor.png");
     std::list<Wall> mainWallList;
     std::list<Wall> mapWallList;
     int mapNumber = 1;
@@ -30,6 +30,7 @@ int main(void) {
     GameObject BG(50, 50, 1920, 1080);
     GameObject Map(50, 50, 1920, 1080);
     Map.setTexture(MapTexture);
+    BG.setTexture(bgTexture);
     Player player(World, 500, 500, Sensor(World, 500, 500, BLAST_RADIUS));
     ClientController controller(World, Window);
     std::vector<sf::Vector2f> spawns;
@@ -43,8 +44,6 @@ int main(void) {
     controller.spawnPoints = spawns;
     controller.despawnPoints = despawns;
     FPS fps;
-    Client newClient(World, 100, 100, 50, 50, rand() % 300 + 50, sf::Vector2f{200, 200}, 0, false);
-    newClient.freeTime = MAXIMUM_FREE_TIME;
 
     while (Window.isOpen()) {
         sf::Event event;
@@ -57,12 +56,11 @@ int main(void) {
         clock.restart();
 
         Window.clear(sf::Color::Black);
+        Window.draw(BG);
         controller.Update(deltaTime);
         controller.Draw(Window);
         player.Update(deltaTime);
         Window.draw(player);
-        newClient.Update(deltaTime);
-        Window.draw(newClient);
         Window.draw(Map);
         Window.display();
         fps.update();
