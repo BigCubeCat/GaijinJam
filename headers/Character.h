@@ -12,9 +12,7 @@ public:
     sf::Texture NoMaskB;
     sf::Texture WithMaskA;
     sf::Texture WithMaskB;
-    sf::Texture *allTextures[4];
-    sf::Texture withMask;
-    sf::Texture noMasked;
+    sf::Texture *allTextures[8];
     float speed = 1.0f;
     bool stoped = true;
     bool masked = false;

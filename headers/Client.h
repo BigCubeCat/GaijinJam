@@ -9,7 +9,9 @@ private:
     std::string path;
 public:
     float freeTime;
+    float dieTime;
     bool goToShop = false;
+    bool atCheckout = false;
     bool masked = false;
     sf::Vector2f currentPoint;
     std::vector<sf::Vector2f> lastPoints;

@@ -19,8 +19,15 @@ Client::Client(
 }
 
 void Client::Update(float deltaTime) {
-    this->Move(this->xVector, this->yVector);
-    if (this->goToShop) {
+    this->animation.currentAnimation = this->masked ? "masked" : "free";
+    if (this->atCheckout) {
+        this->animation.currentAnimation = "die";
+        this->spendedTime += deltaTime;
+        if (this->spendedTime >= this->dieTime) {
+            this->needDestroy = true;
+            return;
+        }
+    } else if (this->goToShop) {
         auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
         if (this->nearThePoint(this->currentPoint, pos)) {
             this->needDestroy = true;
@@ -29,7 +36,8 @@ void Client::Update(float deltaTime) {
         this->yVector = normalize(this->currentPoint.y - pos.y);
     } else {
         this->spendedTime += deltaTime;
-        if (this->spendedTime > this->freeTime) {
+        if (this->spendedTime >= this->freeTime) {
+            this->spendedTime = 0.0f;
             auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
             this->goToShop = true;
             float minimum = INF;
@@ -40,16 +48,16 @@ void Client::Update(float deltaTime) {
                     this->currentPoint = point;
                 }
             }
+            this->xVector = 0.0f;
+            this->yVector = 0.0f;
+            this->atCheckout = true;
             return;
         }
-        if (rand() % 100 <= ROTATE_PROBABILITY) {// меняем курс 
-            this->chooseWay();
-        }
     }
+    this->Move(this->xVector, this->yVector);
     for (b2ContactEdge* ce = this->body->GetContactList(); ce; ce = ce->next) {
         this->ReactToClass(ce->other->GetUserData().pointer);
     }
-    this->animation.currentAnimation = this->masked ? "masked" : "free";
     this->animation.Tick(deltaTime);
     Character::Update(deltaTime);
 }
@@ -75,6 +83,7 @@ void Client::ReactToClass(int typeIndex) {
             this->masked = true;
             break;
         case GAME_OBJECT:
+            this->chooseWay();
             break;
     }
 }

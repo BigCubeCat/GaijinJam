@@ -77,25 +77,47 @@ void Character::InitAnimation(std::string path) {
     this->NoMaskB.loadFromFile(path + "nb.png");
     this->WithMaskA.loadFromFile(path + "ma.png");
     this->WithMaskB.loadFromFile(path + "mb.png");
+    
+    auto *boom0 = new sf::Texture();
+    auto *boom1 = new sf::Texture();
+    auto *boom2 = new sf::Texture();
+    auto *boom3 = new sf::Texture();
+    boom0->loadFromFile("../assets/boom/0.png");
+    boom1->loadFromFile("../assets/boom/1.png");
+    boom2->loadFromFile("../assets/boom/2.png");
+    boom3->loadFromFile("../assets/boom/3.png");
 
     this->allTextures[0] = &NoMaskA;
     this->allTextures[1] = &NoMaskB;
     this->allTextures[2] = &WithMaskA;
     this->allTextures[3] = &WithMaskB;
+    this->allTextures[4] = boom0;
+    this->allTextures[5] = boom1;
+    this->allTextures[6] = boom2;
+    this->allTextures[7] = boom3;
 
     vector<pair<int, float>> animMasked;
     vector<pair<int, float>> animNotMask;
+    vector<pair<int, float>> animBoom;
+    
     pair<int, float> noMaskedA(0, NO_BLINKED_TIME);
     pair<int, float> noMaskedB(1, BLINKED_TIME);
     pair<int, float> maskedA(2, NO_BLINKED_TIME);
     pair<int, float> maskedB(3, BLINKED_TIME);
+    pair<int, float> bom0(4, BOOM_TIME);
+    pair<int, float> bom1(5, BOOM_TIME);
+    pair<int, float> bom2(6, BOOM_TIME);
+    pair<int, float> bom3(7, BOOM_TIME);
      
     animMasked.push_back(maskedA);
     animMasked.push_back(maskedB);
-    
     animNotMask.push_back(noMaskedA);
     animNotMask.push_back(noMaskedB);
+    animBoom.push_back(bom0);
+    animBoom.push_back(bom1);
+    animBoom.push_back(bom2);
+    animBoom.push_back(bom3);
 
-    this->animation.frames = {{"masked", animMasked}, {"free", animNotMask}};
+    this->animation.frames = {{"masked", animMasked}, {"free", animNotMask}, {"die", animBoom}};
     this->setTexture(*this->allTextures[this->animation.GetTexture()]);
 }

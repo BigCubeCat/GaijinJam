@@ -31,6 +31,7 @@ void ClientController::SpawnClient() {
         rand() % 14, false
     );
     newClient->freeTime = MAXIMUM_FREE_TIME;
+    newClient->dieTime = BOOM_TIME * 4;
     this->clients.emplace_back(*newClient);
 }
 
