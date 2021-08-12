@@ -18,6 +18,8 @@ add_executable(gaijinjam src/main.cpp
     src/Helper.cpp 
     src/ClientController.cpp
     src/Sensor.cpp
+    src/Slider.cpp
+    headers/Slider.h
     headers/Sensor.h
     headers/ClientController.h
     headers/Client.h
@@ -29,7 +31,6 @@ add_executable(gaijinjam src/main.cpp
     headers/Wall.h 
     headers/Helper.h
     resources/maps.txt
-    assets/characters assets/Map.png
         src/FPS.cpp headers/FPS.h)
 
 

@@ -7,6 +7,8 @@ GameObject::GameObject(float x, float y, float w, float h) : sf::Sprite() {
     this->position = pos;
     this->height = h;
     this->width = w;
+    this->x = x;
+    this->y = y;
 }
 /*
 GameObject::GameObject(const GameObject &obj) {
@@ -30,4 +32,5 @@ void GameObject::ReactToClass(int classType) {
 }
 
 void GameObject::Update() {
+    this->setPosition(sf::Vector2f{this->x, this->y});
 }

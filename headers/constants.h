@@ -14,7 +14,7 @@ const float PLAYER_MASS = 100.0f;
 
 // Score
 const int PLUS = 1;
-const int MINUS = 1;
+const int MINUS = 10;
 
 // AI
 const float MINIMUM_FREE_TIME = 1.0f; // in seconds;
