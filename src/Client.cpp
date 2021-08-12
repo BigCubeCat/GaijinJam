@@ -12,8 +12,7 @@ Client::Client(
     this->lastPoints = lastPoint;
     this->path = "../assets/characters/";
     this->path.push_back(ALPHABET[symIndex]);
-    this->TypeIndex = CLIENT_TYPE;
-    this->body->GetUserData().pointer = this->TypeIndex;
+    this->SetType(CLIENT_TYPE);
     this->chooseWay();
     this->InitAnimation(path);
 }
@@ -81,6 +80,7 @@ void Client::ReactToClass(int typeIndex) {
     switch (typeIndex) {
         case PLAYER_TYPE:
             this->masked = true;
+            this->SetType(MASKED_CLIENT);
             break;
         case GAME_OBJECT:
             this->chooseWay();

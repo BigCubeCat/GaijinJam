@@ -9,8 +9,7 @@ Player::Player(
                                                               sensor(sensor) {
     this->minSpeed = PLAYER_START_SPEED;
     this->maxSpeed = PLAYER_SPEED;
-    this->TypeIndex = PLAYER_TYPE;
-    this->body->GetUserData().pointer = this->TypeIndex;
+    this->SetType(PLAYER_TYPE);
     this->masked = true;
     this->sensor = sensor;
     this->InitAnimation("../assets/characters/P");
@@ -22,7 +21,10 @@ void Player::Update(float deltaTime) {
     this->Move(this->xSpeed, this->ySpeed);
     this->animation.currentAnimation = this->masked ? "masked" : "free";
     this->animation.Tick(deltaTime);
-    Character::Update(deltaTime);
+    for (b2ContactEdge* ce = this->body->GetContactList(); ce; ce = ce->next) {
+        this->ReactToClass(ce->other->GetUserData().pointer);
+    }
+ Character::Update(deltaTime);
 }
 
 void Player::Callback() {
@@ -37,14 +39,6 @@ void Player::Callback() {
     }
 }
 
-void Player::OnCollisionBegin(int typeIndex) {
-    std::cout << "Enter\n";
-}
-
-void Player::OnCollisionEnd(int typeIndex) {
-    std::cout << "exit\n";
-}
-
 void Player::Blast(b2Body* body, b2Vec2 blastDir, float blastPower) {
     std::cout << blastDir.x << " " << blastDir.y << std::endl;
     blastDir.x *= blastPower;
@@ -53,12 +47,17 @@ void Player::Blast(b2Body* body, b2Vec2 blastDir, float blastPower) {
 }
 
 void Player::FindBlastedObjects() {
-    int a = 0;
     for (auto b : this->sensor.DetectedBodies()) {
         if (b == this->body) continue;
-        a++;
         b2Vec2 dir = b->GetPosition() - this->body->GetPosition();
         this->Blast(b, dir, BLAST_POWER);
     }
-    std::cout << "b = " << a << std::endl;
+}
+
+void Player::ReactToClass(int TypeIndex) {
+    switch (TypeIndex) {
+        case CLIENT_TYPE:
+            this->score += PLUS;
+            break;
+    }
 }

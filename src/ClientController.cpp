@@ -2,9 +2,10 @@
 #include <iostream>
 
 
-ClientController::ClientController(b2World &world, sf::RenderWindow &window) {
+ClientController::ClientController(b2World &world, sf::RenderWindow &window, Player &player) {
     this->world = &world;
     this->window = &window;
+    this->player = &player;
     this->delayTime = SPAWNER_TIME;
 }
 
@@ -16,6 +17,9 @@ void ClientController::Update(float deltaTime) {
     }
     for (int i = this->clients.size() - 1; i >= 0; i--) {
         if (this->clients[i].needDestroy) {
+            if (!this->clients[i].masked) { // если без маски - штраф
+                this->player->score -= MINUS;
+            }
             this->world->DestroyBody(this->clients[i].body);
             this->clients.erase(this->clients.begin()+(int)i);
         } else {

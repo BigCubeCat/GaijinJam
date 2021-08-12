@@ -12,6 +12,10 @@ const float POINT_DISTANCE = 10.0f;
 const std::string ALPHABET = "abcdefjhijklmn";
 const float PLAYER_MASS = 100.0f;
 
+// Score
+const int PLUS = 1;
+const int MINUS = 1;
+
 // AI
 const float MINIMUM_FREE_TIME = 1.0f; // in seconds;
 const float MAXIMUM_FREE_TIME = 10.0f; // in seconds;
@@ -32,6 +36,7 @@ const float BLAST_POWER = 100.0f;
 const int GAME_OBJECT = 0;
 const int PLAYER_TYPE = 1;
 const int CLIENT_TYPE = 2;
+const int MASKED_CLIENT = 3;
 
 // Animations
 const float BLINKED_TIME = 0.2f;

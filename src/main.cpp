@@ -32,7 +32,7 @@ int main(void) {
     Map.setTexture(MapTexture);
     BG.setTexture(bgTexture);
     Player player(World, 500, 500, Sensor(World, 500, 500, BLAST_RADIUS));
-    ClientController controller(World, Window);
+    ClientController controller(World, Window, player);
     std::vector<sf::Vector2f> spawns;
     std::vector<sf::Vector2f> despawns;
     spawns.emplace_back(sf::Vector2f{1000, 75});
@@ -59,15 +59,17 @@ int main(void) {
 
         Window.clear(sf::Color::Black);
         Window.draw(BG);
-        controller.Update(deltaTime);
-        controller.Draw();
+        // игрок должен обновляться раньше контроллеров!!!
         player.Update(deltaTime);
         Window.draw(player);
+         controller.Update(deltaTime);
+        controller.Draw();
         Window.draw(Map);
         Window.display();
         fps.update();
         std::ostringstream ss;
         ss << fps.getFPS();
+        std::cout << player.score << std::endl;
         Window.setTitle(ss.str());
     }
 }

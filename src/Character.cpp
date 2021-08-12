@@ -121,3 +121,9 @@ void Character::InitAnimation(std::string path) {
     this->animation.frames = {{"masked", animMasked}, {"free", animNotMask}, {"die", animBoom}};
     this->setTexture(*this->allTextures[this->animation.GetTexture()]);
 }
+
+void Character::SetType(int typeIndex) {
+    this->TypeIndex = typeIndex;
+    this->body->GetUserData().pointer = this->TypeIndex;
+    std::cout << "FFFF\n";
+ }
