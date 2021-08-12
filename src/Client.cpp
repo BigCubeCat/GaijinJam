@@ -11,7 +11,7 @@ Client::Client(
     //this->animation.currentAnimation = this->masked ? "free" : "masked";
     this->lastPoint = lastPoint;
     this->path = "../assets/characters/";
-    this->path.push_back(ALPHABET[0]);
+    this->path.push_back(ALPHABET[symIndex]);
     this->TypeIndex = CLIENT_TYPE;
     this->body->GetUserData().pointer = this->TypeIndex;
     this->chooseWay();
