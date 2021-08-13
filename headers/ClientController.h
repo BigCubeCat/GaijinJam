@@ -1,3 +1,4 @@
+#pragma once
 #include "../headers/Client.h"
 #include "../headers/Player.h"
 

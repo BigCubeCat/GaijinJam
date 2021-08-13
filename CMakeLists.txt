@@ -19,6 +19,8 @@ add_executable(gaijinjam src/main.cpp
     src/ClientController.cpp
     src/Sensor.cpp
     src/Slider.cpp
+    src/Game.cpp
+    headers/Game.h
     headers/Slider.h
     headers/Sensor.h
     headers/ClientController.h

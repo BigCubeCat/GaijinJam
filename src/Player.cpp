@@ -40,7 +40,6 @@ void Player::Callback() {
 }
 
 void Player::Blast(b2Body* body, b2Vec2 blastDir, float blastPower) {
-    std::cout << blastDir.x << " " << blastDir.y << std::endl;
     blastDir.x *= blastPower;
     blastDir.y *= blastPower;
     body->ApplyLinearImpulseToCenter(blastDir, true);

@@ -1,3 +1,4 @@
+#pragma once
 #include "../headers/Character.h"
 
 class Client : public Character {
