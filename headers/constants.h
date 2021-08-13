@@ -13,8 +13,8 @@ const std::string ALPHABET = "abcdefjhijklmn";
 const float PLAYER_MASS = 100.0f;
 
 // Score
-const int PLUS = 10;
-const int MINUS = 20;
+const int PLUS = 1;
+const int MINUS = 200;
 const int MINIMUM_SCORE = -100;
 const int MAXIMUM_SCORE = 100;
 

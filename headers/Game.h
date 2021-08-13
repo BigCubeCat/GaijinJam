@@ -25,6 +25,9 @@ public:
     
     Player *player;
     ClientController *clientController;
+
+    sf::SoundBuffer musicBuffer;
+    sf::Sound Music;
     
     Slider *slider;
     GameObject *BG;

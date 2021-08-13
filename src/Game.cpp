@@ -41,11 +41,15 @@ void Game::Setup(sf::RenderWindow &window) {
     this->slider->setTexture(this->allTextures[1]);
     this->Map->setTexture(this->allTextures[2]);
     this->BG->setTexture(this->allTextures[3]);
+
+    this->musicBuffer.loadFromFile("../assets/sounds/music.wav");
+    this->Music.setBuffer(this->musicBuffer);
+    this->Music.setLoop(true);
+    this->Music.play();
 }
 
 void Game::Update(sf::RenderWindow &window, float deltaTime) {
     this->world->Step(1 / SCALE, 8, 3);
-
 
     window.clear(sf::Color::Black);
     window.draw(*this->BG);

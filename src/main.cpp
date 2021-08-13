@@ -5,7 +5,7 @@
 int main(void) {
     sf::RenderWindow Window(sf::VideoMode(1920, 1080), "Game", sf::Style::Default);
     Window.setFramerateLimit(40);
-    
+ 
     Game game;
     sf::Clock clock;
     game.Setup(Window);
