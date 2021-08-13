@@ -31,35 +31,7 @@ Character::Character(
     this->SetBody(Body);
     this->animation.currentAnimation = this->masked ? "masked" : "free";
 }
-/*
-Character::Character(const Character &character) : GameObject(character) {
-    this->world = character.world;
-    this->mass = character.mass;
 
-    b2BodyDef BodyDef;
-    BodyDef.position = b2Vec2(x / SCALE, y / SCALE);
-    BodyDef.type = b2_dynamicBody;
-    b2Body* Body = this->world->CreateBody(&BodyDef);
- 
-    b2CircleShape Shape;
-    Shape.m_p.Set(this->width / SCALE, this->height / SCALE);
-    Shape.m_radius = this->width / 2 / SCALE;
-
-    Body->SetFixedRotation(true);
-    Body->SetLinearDamping(DEFAULT_DAMPING);
-
-    b2FixtureDef FixtureDef;
-    FixtureDef.density = this->mass;
-    FixtureDef.friction = DEFAULT_FRICTION;
-    FixtureDef.shape = &Shape;
-    FixtureDef.restitution = DEFAULT_RESTITUTION;
-    Body->CreateFixture(&FixtureDef);
-    Body->SetBullet(true);
-    this->SetBody(Body);
-    this->animation.currentAnimation = this->masked ? "masked" : "free";
-
-}
-*/
 void Character::Move(float x, float y) {
     if (this->stoped) this->speed = minSpeed;
     if (speed + ACCELERATION > maxSpeed) this->speed = maxSpeed; else this->speed = speed + ACCELERATION;
@@ -125,5 +97,4 @@ void Character::InitAnimation(std::string path) {
 void Character::SetType(int typeIndex) {
     this->TypeIndex = typeIndex;
     this->body->GetUserData().pointer = this->TypeIndex;
-    std::cout << "FFFF\n";
  }
