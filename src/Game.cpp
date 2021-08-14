@@ -19,7 +19,7 @@ void Game::Setup(sf::RenderWindow &window) {
 
     this->player = new Player(*this->world, 500, 500, Sensor(*this->world, 500, 500, BLAST_RADIUS));
     this->clientController = new ClientController(*this->world, window, *this->player);
-    this->slider = new Slider(948, 70, 1920, 1080, *this->player);
+    this->slider = new Slider(-100, 100, 840, 20, 1920, 1080, *this->player);
     vector<sf::Vector2f> spawns;
     vector<sf::Vector2f> despawns;
     spawns.emplace_back(sf::Vector2f{1000, 75});

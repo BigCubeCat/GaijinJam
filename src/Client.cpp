@@ -1,7 +1,6 @@
 #include "../headers/Client.h" 
 #include "../headers/constants.h"
 #include "../headers/Helper.h"
-#include <iostream>
 
 
 Client::Client(
@@ -64,7 +63,6 @@ void Client::Update(float deltaTime) {
 }
 
 bool Client::nearThePoint(sf::Vector2f pos, sf::Vector2f point) {
-    std::cout << pos.x << " " << pos.y << " ; " << point.x << " " << point.y << std::endl;
     return (abs(pos.x - point.x) < POINT_DISTANCE) && (abs(pos.y - point.y) < POINT_DISTANCE);
 }
 

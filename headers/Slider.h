@@ -6,10 +6,10 @@ class Slider : public GameObject {
 private:
     float minX;
     float maxX;
-    float maxValue;
-    float minValue;
+    float middle;
+    float scale;
     Player *player;
 public:
-    Slider(float x, float y, float w, float h, Player &);
+    Slider(float minX, float maxX, float x, float y, float w, float h, Player &);
     void Update();
 };
