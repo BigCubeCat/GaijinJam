@@ -1,13 +1,13 @@
-#include "../headers/Game.h"
+#include "../headers/SceneManager.h"
 
 
 int main(void) {
     sf::RenderWindow Window(sf::VideoMode(1920, 1080), "Game", sf::Style::Default);
     Window.setFramerateLimit(60);
+    SceneManager sceneManager;
  
     Game game;
     sf::Clock clock;
-    game.Setup(Window);
 
     while (Window.isOpen()) {
         sf::Event event;
@@ -17,6 +17,7 @@ int main(void) {
 
         float deltaTime = clock.getElapsedTime().asSeconds();
         clock.restart();
-        game.Update(Window, deltaTime);
+        sceneManager.Update(Window, deltaTime);
+        Window.display();
     }
 }

@@ -4,9 +4,9 @@
 #include <iostream>
 #include <list>
 
-
 void Game::Setup(sf::RenderWindow &window) {
-    b2Vec2 Gravity(0.f, 0.0f);
+    std::cout << "Game Setup\n";
+    b2Vec2 Gravity(0, 0);
     this->world = new b2World(Gravity);
 
     this->LoadTexture("../assets/UI/p.png");
@@ -19,7 +19,8 @@ void Game::Setup(sf::RenderWindow &window) {
 
     this->player = new Player(*this->world, 500, 500, Sensor(*this->world, 500, 500, BLAST_RADIUS));
     this->clientController = new ClientController(*this->world, window, *this->player);
-    this->slider = new Slider(-100, 100, 840, 20, 1920, 1080, *this->player);
+    this->slider = new Slider(-SCORE, SCORE, 840, 50, 360, 1080, *this->player);
+    this->slider->setScale(0.6, 0.6);
     vector<sf::Vector2f> spawns;
     vector<sf::Vector2f> despawns;
     spawns.emplace_back(sf::Vector2f{1000, 75});
@@ -52,7 +53,7 @@ void Game::Setup(sf::RenderWindow &window) {
 }
 
 void Game::Update(sf::RenderWindow &window, float deltaTime) {
-    this->world->Step(1 / SCALE, 8, 3);
+    this->world->Step(1 / 60, 8, 3);
 
     window.clear(sf::Color::Black);
     window.draw(*this->BG);

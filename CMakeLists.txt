@@ -33,7 +33,7 @@ add_executable(gaijinjam src/main.cpp
     headers/Wall.h 
     headers/Helper.h
     resources/maps.txt
-        src/FPS.cpp headers/FPS.h)
+        src/FPS.cpp headers/FPS.h headers/SceneManager.h src/SceneManager.cpp)
 
 
 

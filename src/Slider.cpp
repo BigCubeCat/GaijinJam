@@ -7,7 +7,7 @@ Slider::Slider(float minX, float maxX, float x, float y, float w, float h, Playe
     this->minX = x;
     this->maxX = maxX;
     this->minX = minX;
-    this->scale = (this->maxX - this->minX) / 200;
+    this->scale = w / (maxX - minX);
     this->middle = x + maxX;
     std::cout << this->middle << std::endl;
 }

@@ -1,3 +1,4 @@
+#pragma  once
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "../headers/Player.h"
@@ -28,6 +29,9 @@ public:
 
     sf::SoundBuffer musicBuffer;
     sf::Sound Music;
+
+    bool GameOver = false;
+    bool win = false;
     
     Slider *slider;
     GameObject *BG;

@@ -13,10 +13,9 @@ const std::string ALPHABET = "abcdefjhijklmn";
 const float PLAYER_MASS = 100.0f;
 
 // Score
-const int PLUS = 10;
-const int MINUS = 200;
-const int MINIMUM_SCORE = -100;
-const int MAXIMUM_SCORE = 100;
+const int PLUS = 1;
+const int MINUS = 5;
+const int SCORE = 100;
 
 // AI
 const float MINIMUM_FREE_TIME = 1.0f; // in seconds;
@@ -44,3 +43,11 @@ const int MASKED_CLIENT = 3;
 const float BLINKED_TIME = 0.2f;
 const float NO_BLINKED_TIME = 1.0f;
 const float BOOM_TIME = 0.1;
+
+// Screen's
+const int START_SCREEN_FIRST = -1;
+const int START_SCREEN_SECOND = 0;
+const int LEARN_SCREEN = 1;
+const int GAME_SCREEN = 2;
+const int WIN_SCREEN = 3;
+const int LOOSE_SCREEN = 4;
