@@ -8,7 +8,7 @@ const float SCALE = 120.f;
 const float PLAYER_SPEED = 7.5;
 const float PLAYER_START_SPEED = 1.0;
 const float PLAYER_DIAMETR = 60.0f;
-const float POINT_DISTANCE = 10.0f;
+const float POINT_DISTANCE = 2.0f;
 const std::string ALPHABET = "abcdefjhijklmn";
 const float PLAYER_MASS = 100.0f;
 
@@ -28,7 +28,7 @@ const float SPAWNER_TIME = 1.0f;
 const float ACCELERATION = 1.0f;
 const float MINIMUM_SPEED = 1.0f;
 const float MAXIMUM_SPEED = 3.0f;
-const float DEFAULT_DAMPING = 10.0;w
+const float DEFAULT_DAMPING = 10.0;
 const float DEFAULT_FRICTION = 0.5;
 const float DEFAULT_RESTITUTION = 0.1;
 const float BLAST_RADIUS = 40.0f;

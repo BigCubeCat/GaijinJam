@@ -1,6 +1,7 @@
 #include "../headers/Client.h" 
 #include "../headers/constants.h"
 #include "../headers/Helper.h"
+#include <iostream>
 
 
 Client::Client(
@@ -17,6 +18,11 @@ Client::Client(
 }
 
 void Client::Update(float deltaTime) {
+    for (b2ContactEdge* ce = this->body->GetContactList(); ce; ce = ce->next) {
+        this->ReactToClass(ce->other->GetUserData().pointer);
+    }
+    this->animation.Tick(deltaTime);
+    Character::Update(deltaTime);
     this->animation.currentAnimation = this->masked ? "masked" : "free";
     if (this->atCheckout) {
         this->animation.currentAnimation = "die";
@@ -25,10 +31,13 @@ void Client::Update(float deltaTime) {
             this->needDestroy = true;
             return;
         }
+        return;
     } else if (this->goToShop) {
         auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
         if (this->nearThePoint(this->currentPoint, pos)) {
-            this->needDestroy = true;
+            this->xVector = 0.0f;
+            this->yVector = 0.0f;
+            this->atCheckout = true;
         }
         this->xVector = normalize(this->currentPoint.x - pos.x);
         this->yVector = normalize(this->currentPoint.y - pos.y);
@@ -46,22 +55,17 @@ void Client::Update(float deltaTime) {
                     this->currentPoint = point;
                 }
             }
-            this->xVector = 0.0f;
-            this->yVector = 0.0f;
-            this->atCheckout = true;
+           this->goToShop = true;
             return;
         }
     }
     this->Move(this->xVector, this->yVector);
-    for (b2ContactEdge* ce = this->body->GetContactList(); ce; ce = ce->next) {
-        this->ReactToClass(ce->other->GetUserData().pointer);
-    }
-    this->animation.Tick(deltaTime);
-    Character::Update(deltaTime);
+
 }
 
 bool Client::nearThePoint(sf::Vector2f pos, sf::Vector2f point) {
-    return (abs(pos.x - point.x) < this->speed) && (abs(pos.y - point.y) < this->speed);
+    std::cout << pos.x << " " << pos.y << " ; " << point.x << " " << point.y << std::endl;
+    return (abs(pos.x - point.x) < POINT_DISTANCE) && (abs(pos.y - point.y) < POINT_DISTANCE);
 }
 
 void Client::chooseWay() {
