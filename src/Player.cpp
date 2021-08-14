@@ -8,11 +8,15 @@ Player::Player(
     ) : Character(world, x, y, PLAYER_DIAMETR, PLAYER_DIAMETR, PLAYER_MASS),
                                                               sensor(sensor) {
     this->minSpeed = PLAYER_START_SPEED;
+    this->setScale(0.6, 0.6);
     this->maxSpeed = PLAYER_SPEED;
     this->SetType(PLAYER_TYPE);
     this->masked = true;
     this->sensor = sensor;
     this->InitAnimation("../assets/characters/P");
+
+    this->firstPhrase.loadFromFile("../assets/sounds/bump.wav");
+    this->sound.setBuffer(this->firstPhrase);
 }
 
 void Player::Update(float deltaTime) {
@@ -57,6 +61,8 @@ void Player::ReactToClass(int TypeIndex) {
     switch (TypeIndex) {
         case CLIENT_TYPE:
             this->score += PLUS;
+            if (this->sound.getStatus() == sf::SoundSource::Stopped)
+                this->sound.play();
             break;
     }
 }

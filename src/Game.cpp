@@ -19,7 +19,7 @@ void Game::Setup(sf::RenderWindow &window) {
 
     this->player = new Player(*this->world, 500, 500, Sensor(*this->world, 500, 500, BLAST_RADIUS));
     this->clientController = new ClientController(*this->world, window, *this->player);
-    this->slider = new Slider(600, 70, 300, 50, *this->player);
+    this->slider = new Slider(948, 70, 1920, 1080, *this->player);
     vector<sf::Vector2f> spawns;
     vector<sf::Vector2f> despawns;
     spawns.emplace_back(sf::Vector2f{1000, 75});
@@ -34,10 +34,11 @@ void Game::Setup(sf::RenderWindow &window) {
     this->clientController->despawnPoints = despawns;
 
     this->BG = new GameObject(50, 50, 1920, 1080);
-    this->SliderMain = new GameObject(600, 0, 300, 50);
-    this->Map = new GameObject(960, 20, 1920, 1080);
+    this->SliderMain = new GameObject(746, 0, 1920, 1080);
+    this->Map = new GameObject(100, 20, 1920, 1080);
 
     this->SliderMain->setTexture(this->allTextures[0]);
+    this->SliderMain->setScale(0.5, 0.5);
     this->slider->setTexture(this->allTextures[1]);
     this->Map->setTexture(this->allTextures[2]);
     this->BG->setTexture(this->allTextures[3]);

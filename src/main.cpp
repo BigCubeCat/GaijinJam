@@ -1,10 +1,9 @@
 #include "../headers/Game.h"
 
 
-
 int main(void) {
     sf::RenderWindow Window(sf::VideoMode(1920, 1080), "Game", sf::Style::Default);
-    Window.setFramerateLimit(40);
+    Window.setFramerateLimit(60);
  
     Game game;
     sf::Clock clock;
