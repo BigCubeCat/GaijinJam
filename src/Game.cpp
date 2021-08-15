@@ -82,7 +82,8 @@ void Game::Update(sf::RenderWindow &window, float deltaTime) {
         }
     } else if (this->currentScreen <= LEARN_SCREEN) {
         this->screenSprite.setTexture(this->allTextures[this->currentScreen + 4]);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && this->keyReleased) {
+            this->keyReleased = false;
             this->currentScreen++;
         }
         window.draw(this->screenSprite);
