@@ -9,7 +9,7 @@ const float PLAYER_SPEED = 600.0f;
 const float PLAYER_START_SPEED = 100.0;
 const float PLAYER_DIAMETR = 58.0f;
 const float POINT_DISTANCE = 150.0f;
-const std::string ALPHABET = "abcdefjhijklmn";
+const std::string ALPHABET = "abcdefghijklmn";
 const std::string SOUNDS[4] = {
         "../assets/sounds/bump/oi7.wav",
         "../assets/sounds/bump/oi8.wav",
@@ -17,6 +17,7 @@ const std::string SOUNDS[4] = {
         "../assets/sounds/bump/oi10.wav",
 };
 const float PLAYER_MASS = 100.0f;
+const int NPS_SIZE = 50;
 
 // Score
 const int PLUS = 1;
@@ -26,9 +27,9 @@ const int SCORE = 100;
 // AI
 const int MINIMUM_FREE_TIME = 1.0f; // in seconds;
 const int MAXIMUM_FREE_TIME = 10.0f; // in seconds;
-const float SPAWNER_TIME = 10.0f;
+const float SPAWNER_TIME = 5.0f;
 const float MINIMUM_SPAWNER_DELAY = 1.0;
-const float SPAWNER_ACCELERATION_DELAY = 5.0f;
+const float SPAWNER_ACCELERATION_DELAY = 30.0f;
 const float SPAWNER_ACCELERATION = 1.0;
 
 // Physics
@@ -59,3 +60,8 @@ const int LEARN_SCREEN = 2;
 const int WIN_SCREEN = 3;
 const int LOOSE_SCREEN = 4;
 const int GAME_SCREEN = 5;
+
+// Map points
+const int FREE_POINT = 0;
+const int NO_POINT = 1;
+const int FINISH_POINT = 2;

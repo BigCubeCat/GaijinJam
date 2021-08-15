@@ -1,4 +1,5 @@
 #include "../headers/Game.h"
+#include "../headers/PointMap.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <list>
@@ -14,11 +15,13 @@ void Game::Setup(sf::RenderWindow &window) {
     this->LoadTexture("../assets/floor.png");
     this->LoadTexture("../assets/screens/first.png");
     this->LoadTexture("../assets/screens/second.png");
+    this->LoadTexture("../assets/screens/help.png");
     this->LoadTexture("../assets/screens/win.png");
     this->LoadTexture("../assets/screens/loose.png");
 
     int mapNumber = 1;
     makeMap("../resources/maps.txt", mapNumber, this->mainWallList, this->mapWallList, *this->world);
+    PointMap pointMap("../resources/map.txt");
 
     this->player = new Player(*this->world, 500, 500, Sensor(*this->world, 500, 500, BLAST_RADIUS));
     this->clientController = new ClientController(*this->world, window, *this->player);

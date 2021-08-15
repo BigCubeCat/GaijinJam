@@ -42,7 +42,9 @@ void Client::Update(float deltaTime) {
            return;
         }
         return;
-    } else if (this->goToShop) {
+    }
+    this->Move(this->xVector, this->yVector, deltaTime);
+    if (this->goToShop) {
         auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
         if (this->nearThePoint(this->currentPoint, pos)) {
             this->xVector = 0.0f;
@@ -69,7 +71,6 @@ void Client::Update(float deltaTime) {
             return;
         }
     }
-    this->Move(this->xVector, this->yVector, deltaTime);
 
 }
 
@@ -89,7 +90,7 @@ void Client::chooseWay() {
 }
 
 void Client::ReactToClass(int typeIndex) {
-   switch (typeIndex) {
+    switch (typeIndex) {
         case PLAYER_TYPE:
             if (this->sound.getStatus() == sf::SoundSource::Status::Stopped && !this->isSound) {
                 this->sound.setBuffer(this->sb[0]);
@@ -99,9 +100,9 @@ void Client::ReactToClass(int typeIndex) {
             this->masked = true;
             this->SetType(MASKED_CLIENT);
             break;
-        case GAME_OBJECT:
-            this->chooseWay();
-            break;
+            case GAME_OBJECT:
+                this->chooseWay();
+                break;
     }
 }
 
