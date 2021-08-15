@@ -7,10 +7,13 @@ Client::Client(
     b2World &world, float x, float y, float w, float h, 
     float weight, std::vector<sf::Vector2f> lastPoint, int symIndex, bool masked
 ) : Character(world, x, y, w, h, weight) {
-    if (!this->sb.loadFromFile(SOUNDS[symIndex % 10])) {
+    if (!this->sb[0].loadFromFile(SOUNDS[symIndex % 10])) {
         std::cout << SOUNDS[symIndex % 10] << std::endl;
     }
-    this->sound.setBuffer(this->sb);
+    if (!this->sb[1].loadFromFile("../asset/sound/end1.ogg")) {
+        std::cout << "ERR\n";
+    };
+    this->sb[2].loadFromFile("../assets/sound/end1.ogg");
     this->sound.setVolume(50.0f);
 
     this->masked = masked;
@@ -30,11 +33,15 @@ void Client::Update(float deltaTime) {
     Character::Update(deltaTime);
     this->animation.currentAnimation = this->masked ? "masked" : "free";
     if (this->atCheckout) {
+        if (this->sound.getStatus() == sf::SoundSource::Stopped) {
+            this->sound.setBuffer(this->sb[rand() % 2 + 1]);
+            this->sound.play();
+        }
         this->animation.currentAnimation = "die";
         this->spendedTime += deltaTime;
         if (this->spendedTime >= this->dieTime) {
             this->needDestroy = true;
-            return;
+           return;
         }
         return;
     } else if (this->goToShop) {
@@ -87,6 +94,7 @@ void Client::ReactToClass(int typeIndex) {
    switch (typeIndex) {
         case PLAYER_TYPE:
             if (this->sound.getStatus() == sf::SoundSource::Status::Stopped && !this->isSound) {
+                this->sound.setBuffer(this->sb[0]);
                 this->sound.play();
                 this->isSound = true;
             }

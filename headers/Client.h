@@ -9,7 +9,7 @@ private:
     float changeWayProbability;
     std::string path;
 
-    sf::SoundBuffer sb;
+    sf::SoundBuffer sb[3];
     sf::Sound sound;
     bool isSound = false;
 public:
