@@ -15,6 +15,10 @@ void ClientController::Update(float deltaTime) {
         this->spendedTime = 0.0f;
         this->SpawnClient();
     }
+    if (this->spendedTime >= SPAWNER_ACCELERATION_DELAY && this->delayTime > MINIMUM_SPAWNER_DELAY) {
+        this->delayTime -= SPAWNER_ACCELERATION;
+        std::cout << "deltaTime now = " << this->delayTime << "\n";
+    }
     for (int i = this->clients.size() - 1; i >= 0; i--) {
         if (this->clients[i].needDestroy) {
             if (!this->clients[i].masked) { // если без маски - штраф
@@ -34,7 +38,7 @@ void ClientController::SpawnClient() {
         spawn.x, spawn.y, 50, 50, rand() % 200 + 50, this->despawnPoints, 
         rand() % 14, false
     );
-    newClient->freeTime = MAXIMUM_FREE_TIME;
+    newClient->freeTime = (rand() % MAXIMUM_FREE_TIME) + MINIMUM_FREE_TIME;
     newClient->dieTime = BOOM_TIME * 4;
     this->clients.emplace_back(*newClient);
 }

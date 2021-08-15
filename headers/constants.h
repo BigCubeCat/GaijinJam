@@ -30,10 +30,12 @@ const int MINUS = 5;
 const int SCORE = 100;
 
 // AI
-const float MINIMUM_FREE_TIME = 1.0f; // in seconds;
-const float MAXIMUM_FREE_TIME = 10.0f; // in seconds;
-const int ROTATE_PROBABILITY = 10;
-const float SPAWNER_TIME = 1.0f;
+const int MINIMUM_FREE_TIME = 1.0f; // in seconds;
+const int MAXIMUM_FREE_TIME = 10.0f; // in seconds;
+const float SPAWNER_TIME = 5.0f;
+const float MINIMUM_SPAWNER_DELAY = 0.0;
+const float SPAWNER_ACCELERATION_DELAY = 1.0f;
+const float SPAWNER_ACCELERATION = 1.1f;
 
 // Physics
 const float ACCELERATION = 1.0f;
