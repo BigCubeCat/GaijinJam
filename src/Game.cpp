@@ -95,8 +95,6 @@ void Game::Update(sf::RenderWindow &window, float deltaTime) {
         }
         window.draw(this->screenSprite);
     }
-
-    window.display();
 }
 
 void Game::LoadTexture(const string& fileName) {
