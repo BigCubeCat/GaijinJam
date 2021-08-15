@@ -1,13 +1,19 @@
 #include "../headers/Client.h" 
 #include "../headers/constants.h"
 #include "../headers/Helper.h"
-
+#include <iostream>
 
 Client::Client(
     b2World &world, float x, float y, float w, float h, 
     float weight, std::vector<sf::Vector2f> lastPoint, int symIndex, bool masked
 ) : Character(world, x, y, w, h, weight) {
-    this->masked = false;
+    if (!this->sb.loadFromFile(SOUNDS[symIndex % 10])) {
+        std::cout << SOUNDS[symIndex % 10] << std::endl;
+    }
+    this->sound.setBuffer(this->sb);
+    this->sound.setVolume(50.0f);
+
+    this->masked = masked;
     this->lastPoints = lastPoint;
     this->path = "../assets/characters/";
     this->path.push_back(ALPHABET[symIndex]);
@@ -78,8 +84,12 @@ void Client::chooseWay() {
 }
 
 void Client::ReactToClass(int typeIndex) {
-    switch (typeIndex) {
+   switch (typeIndex) {
         case PLAYER_TYPE:
+            if (this->sound.getStatus() == sf::SoundSource::Status::Stopped && !this->isSound) {
+                this->sound.play();
+                this->isSound = true;
+            }
             this->masked = true;
             this->SetType(MASKED_CLIENT);
             break;

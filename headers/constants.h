@@ -5,11 +5,23 @@
 #define INF 100000007
 
 const float SCALE = 120.f; 
-const float PLAYER_SPEED = 10.0f;
+const float PLAYER_SPEED = 12.0f;
 const float PLAYER_START_SPEED = 1.0;
 const float PLAYER_DIAMETR = 58.0f;
 const float POINT_DISTANCE = 2.0f;
 const std::string ALPHABET = "abcdefjhijklmn";
+const std::string SOUNDS[10] = {
+        "../assets/sounds/bump/oi1.wav",
+        "../assets/sounds/bump/oi2.wav",
+        "../assets/sounds/bump/oi3.wav",
+        "../assets/sounds/bump/oi4.wav",
+        "../assets/sounds/bump/oi5.wav",
+        "../assets/sounds/bump/oi6.wav",
+        "../assets/sounds/bump/oi7.wav",
+        "../assets/sounds/bump/oi8.wav",
+        "../assets/sounds/bump/oi9.wav",
+        "../assets/sounds/bump/oi10.wav",
+};
 const float PLAYER_MASS = 100.0f;
 
 // Score

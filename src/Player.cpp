@@ -15,8 +15,11 @@ Player::Player(
     this->sensor = sensor;
     this->InitAnimation("../assets/characters/P");
 
-    this->firstPhrase.loadFromFile("../assets/sounds/bump.wav");
-    this->sound.setBuffer(this->firstPhrase);
+    this->sb[0].loadFromFile("../assets/sounds/apch1.wav");
+    this->sb[1].loadFromFile("../assets/sounds/apch2.wav");
+    this->sb[2].loadFromFile("../assets/sounds/mas1.wav");
+    this->sb[3].loadFromFile("../assets/sounds/mas2.wav");
+    this->sb[4].loadFromFile("../assets/sounds/mas3.wav");
 }
 
 void Player::Update(float deltaTime) {
@@ -39,6 +42,10 @@ void Player::Callback() {
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) this->xSpeed = 1;
     else this->xSpeed = 0;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+        if (this->sound.getStatus() == sf::SoundSource::Stopped) {
+            this->sound.setBuffer(this->sb[rand() % 2]);
+            this->sound.play();
+        }
         this->FindBlastedObjects();
     }
 }
@@ -61,8 +68,10 @@ void Player::ReactToClass(int TypeIndex) {
     switch (TypeIndex) {
         case CLIENT_TYPE:
             this->score += PLUS;
-            if (this->sound.getStatus() == sf::SoundSource::Stopped)
+            if (this->sound.getStatus() == sf::SoundSource::Stopped) {
+                this->sound.setBuffer(this->sb[rand() % 3 + 2]);
                 this->sound.play();
+            }
             break;
     }
 }

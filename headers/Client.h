@@ -8,6 +8,10 @@ private:
     float yVector, xVector;
     float changeWayProbability;
     std::string path;
+
+    sf::SoundBuffer sb;
+    sf::Sound sound;
+    bool isSound = false;
 public:
     float freeTime;
     float dieTime;

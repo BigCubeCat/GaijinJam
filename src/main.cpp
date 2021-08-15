@@ -10,6 +10,7 @@ int main(void) {
     sf::Sound Music;
     Music.setBuffer(musicBuffer);
     Music.setLoop(true);
+    Music.setVolume(75.0f);
     Music.play();
 
     Game game;
@@ -21,12 +22,12 @@ int main(void) {
         sf::Event event;
         while (Window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) Window.close();
+            if (event.type == sf::Event::KeyReleased) game.keyReleased = true;
         }
         deltaTime = clock.getElapsedTime().asSeconds();
         clock.restart();
 
         game.Update(Window, deltaTime);
-        std::cout << game.currentScreen << std::endl;
         Window.display();
     }
 }

@@ -1,7 +1,6 @@
 #include "../headers/Game.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include <iostream>
 #include <list>
 
 void Game::Setup(sf::RenderWindow &window) {
