@@ -5,24 +5,19 @@
 #define INF 100000007
 
 const float SCALE = 120.f; 
-const float PLAYER_SPEED = 400.0f;
+const float PLAYER_SPEED = 600.0f;
 const float PLAYER_START_SPEED = 100.0;
 const float PLAYER_DIAMETR = 58.0f;
-const float POINT_DISTANCE = 100.0f;
-const std::string ALPHABET = "abcdefjhijklmn";
-const std::string SOUNDS[10] = {
-        "../assets/sounds/bump/oi1.wav",
-        "../assets/sounds/bump/oi2.wav",
-        "../assets/sounds/bump/oi3.wav",
-        "../assets/sounds/bump/oi4.wav",
-        "../assets/sounds/bump/oi5.wav",
-        "../assets/sounds/bump/oi6.wav",
+const float POINT_DISTANCE = 150.0f;
+const std::string ALPHABET = "abcdefghijklmn";
+const std::string SOUNDS[4] = {
         "../assets/sounds/bump/oi7.wav",
         "../assets/sounds/bump/oi8.wav",
         "../assets/sounds/bump/oi9.wav",
         "../assets/sounds/bump/oi10.wav",
 };
 const float PLAYER_MASS = 100.0f;
+const int NPS_SIZE = 50;
 
 // Score
 const int PLUS = 1;
@@ -33,13 +28,13 @@ const int SCORE = 100;
 const int MINIMUM_FREE_TIME = 1.0f; // in seconds;
 const int MAXIMUM_FREE_TIME = 10.0f; // in seconds;
 const float SPAWNER_TIME = 5.0f;
-const float MINIMUM_SPAWNER_DELAY = 0.0;
-const float SPAWNER_ACCELERATION_DELAY = 1.0f;
-const float SPAWNER_ACCELERATION = 1.1f;
+const float MINIMUM_SPAWNER_DELAY = 1.0;
+const float SPAWNER_ACCELERATION_DELAY = 30.0f;
+const float SPAWNER_ACCELERATION = 1.0;
 
 // Physics
 const float ACCELERATION = 50.0f;
-const float MINIMUM_SPEED = 50.0f;
+const float MINIMUM_SPEED = 10.0f;
 const float MAXIMUM_SPEED = 150.0f;
 const float DEFAULT_DAMPING = 10.0;
 const float DEFAULT_FRICTION = 0.5;
@@ -65,3 +60,8 @@ const int LEARN_SCREEN = 2;
 const int WIN_SCREEN = 3;
 const int LOOSE_SCREEN = 4;
 const int GAME_SCREEN = 5;
+
+// Map points
+const int FREE_POINT = 0;
+const int NO_POINT = 1;
+const int FINISH_POINT = 2;

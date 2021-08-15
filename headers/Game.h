@@ -29,7 +29,7 @@ public:
 
     bool GameOver = false;
     bool win = false;
-    bool keyReleased;
+    bool keyReleased = true;
 
     int currentScreen = START_SCREEN_FIRST;
     sf::Sprite screenSprite;

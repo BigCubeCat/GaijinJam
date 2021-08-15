@@ -54,3 +54,20 @@ float distance(sf::Vector2f a, sf::Vector2f b) {
     float deltaY = a.y - b.y;
     return (deltaX * deltaX) + (deltaY * deltaY);
 }
+
+std::vector<std::vector<int>> loadMatrix(std::string fileName) {
+    std::vector<std::vector<int>> matrix;
+    std::ifstream file(fileName);
+    if(file.is_open()){
+        std::vector<int> row;
+        std::string line;
+        while(std::getline(file, line)){
+            for (int i = 0; i < sizeof(line); i++) {
+                int newValue = line[i] - '0';
+                row.push_back(newValue);
+            }
+        }
+        matrix.emplace_back(row);
+    }
+    return  matrix;
+}

@@ -13,6 +13,6 @@ void makeMap(std::string path, int &mapNumber, std::list<Wall> & mainWallList, s
 float* makeArr(std::string line, float *mas);
 float distance(sf::Vector2f, sf::Vector2f);
 
-
+std::vector<std::vector<int>> loadMatrix(std::string fileName);
 
 

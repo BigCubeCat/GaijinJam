@@ -6,7 +6,6 @@ private:
     float normalize(int);
     float spendedTime;
     float yVector, xVector;
-    float changeWayProbability;
     std::string path;
 
     sf::SoundBuffer sb[3];

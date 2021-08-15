@@ -8,12 +8,10 @@ Client::Client(
     float weight, std::vector<sf::Vector2f> lastPoint, int symIndex, bool masked
 ) : Character(world, x, y, w, h, weight) {
     if (!this->sb[0].loadFromFile(SOUNDS[symIndex % 10])) {
-        std::cout << SOUNDS[symIndex % 10] << std::endl;
+        std::cout << SOUNDS[symIndex % 4] << std::endl;
     }
-    if (!this->sb[1].loadFromFile("../asset/sound/end1.ogg")) {
-        std::cout << "ERR\n";
-    };
-    this->sb[2].loadFromFile("../assets/sound/end1.ogg");
+    this->sb[1].loadFromFile("../assets/sounds/mas1.wav");
+    this->sb[2].loadFromFile("../assets/sounds/mas1.wav");
     this->sound.setVolume(50.0f);
 
     this->masked = masked;
@@ -44,7 +42,9 @@ void Client::Update(float deltaTime) {
            return;
         }
         return;
-    } else if (this->goToShop) {
+    }
+    this->Move(this->xVector, this->yVector, deltaTime);
+    if (this->goToShop) {
         auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
         if (this->nearThePoint(this->currentPoint, pos)) {
             this->xVector = 0.0f;
@@ -71,7 +71,6 @@ void Client::Update(float deltaTime) {
             return;
         }
     }
-    this->Move(this->xVector, this->yVector, deltaTime);
 
 }
 
@@ -91,7 +90,7 @@ void Client::chooseWay() {
 }
 
 void Client::ReactToClass(int typeIndex) {
-   switch (typeIndex) {
+    switch (typeIndex) {
         case PLAYER_TYPE:
             if (this->sound.getStatus() == sf::SoundSource::Status::Stopped && !this->isSound) {
                 this->sound.setBuffer(this->sb[0]);
@@ -101,9 +100,9 @@ void Client::ReactToClass(int typeIndex) {
             this->masked = true;
             this->SetType(MASKED_CLIENT);
             break;
-        case GAME_OBJECT:
-            this->chooseWay();
-            break;
+            case GAME_OBJECT:
+                this->chooseWay();
+                break;
     }
 }
 
