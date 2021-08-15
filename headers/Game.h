@@ -27,12 +27,12 @@ public:
     Player *player;
     ClientController *clientController;
 
-    sf::SoundBuffer musicBuffer;
-    sf::Sound Music;
-
     bool GameOver = false;
     bool win = false;
-    
+
+    int currentScreen = START_SCREEN_FIRST;
+    sf::Sprite screenSprite;
+
     Slider *slider;
     GameObject *BG;
     GameObject *Map;
@@ -41,4 +41,5 @@ public:
     void Setup(sf::RenderWindow&);
     void Update(sf::RenderWindow&, float);
     void LoadTexture(const string& fileName);
+    void ClearGame();
 };

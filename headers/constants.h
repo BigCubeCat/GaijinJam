@@ -5,7 +5,7 @@
 #define INF 100000007
 
 const float SCALE = 120.f; 
-const float PLAYER_SPEED = 7.5;
+const float PLAYER_SPEED = 10.0f;
 const float PLAYER_START_SPEED = 1.0;
 const float PLAYER_DIAMETR = 58.0f;
 const float POINT_DISTANCE = 2.0f;
@@ -26,7 +26,7 @@ const float SPAWNER_TIME = 1.0f;
 // Physics
 const float ACCELERATION = 1.0f;
 const float MINIMUM_SPEED = 1.0f;
-const float MAXIMUM_SPEED = 3.0f;
+const float MAXIMUM_SPEED = 4.0f;
 const float DEFAULT_DAMPING = 10.0;
 const float DEFAULT_FRICTION = 0.5;
 const float DEFAULT_RESTITUTION = 0.1;
@@ -45,9 +45,9 @@ const float NO_BLINKED_TIME = 1.0f;
 const float BOOM_TIME = 0.1;
 
 // Screen's
-const int START_SCREEN_FIRST = -1;
-const int START_SCREEN_SECOND = 0;
-const int LEARN_SCREEN = 1;
-const int GAME_SCREEN = 2;
+const int START_SCREEN_FIRST = 0;
+const int START_SCREEN_SECOND = 1;
+const int LEARN_SCREEN = 2;
 const int WIN_SCREEN = 3;
 const int LOOSE_SCREEN = 4;
+const int GAME_SCREEN = 5;
