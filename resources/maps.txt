@@ -1,26 +1,25 @@
 mainwall: 25 540 1 540
-mainwall: 960 25 960 50
-mainwall: 1940 540 1 540
+mainwall: 960 25 960 65
+mainwall: 1950 540 1 540
 mainwall: 960 1110 960 1
 
-firstmap_wall: 245 275 130 35
-firstmap_wall: 360 400 15 150
-firstmap_wall: 360 765 15 115
-firstmap_wall: 245 850 130 40
+firstmap_wall: 245 280 130 45
+firstmap_wall: 360 400 20 150
+firstmap_wall: 360 765 20 115
+firstmap_wall: 250 855 130 45
 
-firstmap_wall: 605 905 15 105
-firstmap_wall: 1360 920 15 100
-firstmap_wall: 1095 850 280 40
+firstmap_wall: 605 905 20 95
+firstmap_wall: 1365 920 20 100
+firstmap_wall: 1095 850 280 45
 
-firstmap_wall: 1685 850 175 40
-firstmap_wall: 1685 330 180 40
-firstmap_wall: 1520 490 15 160
+firstmap_wall: 1685 850 175 45
+firstmap_wall: 1685 330 180 45
+firstmap_wall: 1520 490 20 160
 
-firstmap_wall: 115 620 30 25
+firstmap_wall: 125 620 30 15
 firstmap_wall: 700 1020 30 25
-firstmap_wall: 1700 1030 30 25
+firstmap_wall: 1700 1020 30 15
 firstmap_wall: 1870 680 30 25
-
 
 firstmap_wall: 690 420 40 90
 firstmap_wall: 1235 420 40 90
