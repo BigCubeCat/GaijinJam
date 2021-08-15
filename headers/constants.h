@@ -8,7 +8,7 @@ const float SCALE = 120.f;
 const float PLAYER_SPEED = 400.0f;
 const float PLAYER_START_SPEED = 100.0;
 const float PLAYER_DIAMETR = 58.0f;
-const float POINT_DISTANCE = 2.0f;
+const float POINT_DISTANCE = 100.0f;
 const std::string ALPHABET = "abcdefjhijklmn";
 const std::string SOUNDS[10] = {
         "../assets/sounds/bump/oi1.wav",

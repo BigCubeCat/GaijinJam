@@ -21,7 +21,6 @@ firstmap_wall: 700 1020 30 25
 firstmap_wall: 1700 1030 30 25
 firstmap_wall: 1870 680 30 25
 
-
 firstmap_wall: 690 420 40 90
 firstmap_wall: 1235 420 40 90
 firstmap_wall: 985 635 90 25

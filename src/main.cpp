@@ -26,7 +26,6 @@ int main(void) {
         }
         deltaTime = clock.getElapsedTime().asSeconds();
         clock.restart();
-        std::cout << game. currentScreen;
         game.Update(Window, deltaTime);
         Window.display();
     }
