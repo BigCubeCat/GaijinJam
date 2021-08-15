@@ -59,7 +59,7 @@ void Client::Update(float deltaTime) {
             this->spendedTime = 0.0f;
             auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
             this->goToShop = true;
-            float minimum = INF;
+            float minimum = INF+1;
             for (const sf::Vector2f &point : this->lastPoints) {
                 float d = distance(pos, point);
                 if (d < minimum) {

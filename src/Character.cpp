@@ -46,7 +46,7 @@ void Character::Update(float deltaTime) {
     this->setTexture(*this->allTextures[this->animation.GetTexture()]);
 }
 
-void Character::InitAnimation(std::string path) {
+void Character::InitAnimation(const std::string& path) {
     this->NoMaskA.loadFromFile(path + "na.png");
     this->NoMaskB.loadFromFile(path + "nb.png");
     this->WithMaskA.loadFromFile(path + "ma.png");

@@ -27,6 +27,6 @@ public:
 
     void Update(float deltaTime);
     void Move(float x, float y, float deltaTime);
-    void InitAnimation(std::string path);
+    void InitAnimation(const std::string& path);
     void SetType(int);
 };

@@ -37,7 +37,8 @@ add_executable(gaijinjam src/main.cpp
         headers/FPS.h
         assets/floor.png
         assets/Map.png
-        headers/PointMap.h src/PointMap.cpp)
+        headers/PointMap.h src/PointMap.cpp
+        resources/map.txt)
 
 
 

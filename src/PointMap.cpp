@@ -1,7 +1,7 @@
 #include "../headers/PointMap.h"
 #include "../headers/Helper.h"
 
-PointMap::PointMap(std::string path) {
+PointMap::PointMap(const std::string& path) {
     this->points = loadMatrix(path);
 }
 

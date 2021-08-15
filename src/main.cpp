@@ -1,7 +1,7 @@
 #include "../headers/Game.h"
 
 
-int main(void) {
+int main() {
     sf::RenderWindow Window(sf::VideoMode(1920, 1080), "Game", sf::Style::Default);
     Window.setFramerateLimit(60);
 
@@ -19,7 +19,7 @@ int main(void) {
 
     float deltaTime;
     while (Window.isOpen()) {
-        sf::Event event;
+        sf::Event event{};
         while (Window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) Window.close();
             if (event.type == sf::Event::KeyReleased || event.type == sf::Event::JoystickButtonReleased)

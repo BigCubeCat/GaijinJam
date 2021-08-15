@@ -15,7 +15,7 @@ float charToInt(std::string & line){
     return res;
 }
 
-void makeMap(std::string path, int &mapNumber, std::list<Wall> & mainWallList, std::list <Wall> & mapWallList, b2World &world){
+void makeMap(const std::string& path, int &mapNumber, std::list<Wall> & mainWallList, std::list <Wall> & mapWallList, b2World &world){
     std::ifstream file(path);
     if(file.is_open()){
         std::string line;
@@ -35,7 +35,7 @@ void makeMap(std::string path, int &mapNumber, std::list<Wall> & mainWallList, s
     }
 }
 
-float* makeArr(std::string  line, float *mas){
+float* makeArr(const std::string&  line, float *mas){
     int i = 0;
     int ex1=0, ex2=0;
     std::string extra;
@@ -55,15 +55,15 @@ float distance(sf::Vector2f a, sf::Vector2f b) {
     return (deltaX * deltaX) + (deltaY * deltaY);
 }
 
-std::vector<std::vector<int>> loadMatrix(std::string fileName) {
+std::vector<std::vector<int>> loadMatrix(const std::string& fileName) {
     std::vector<std::vector<int>> matrix;
     std::ifstream file(fileName);
     if(file.is_open()){
         std::vector<int> row;
         std::string line;
         while(std::getline(file, line)){
-            for (int i = 0; i < sizeof(line); i++) {
-                int newValue = line[i] - '0';
+            for (char i : line) {
+                int newValue = i - '0';
                 row.push_back(newValue);
             }
         }
