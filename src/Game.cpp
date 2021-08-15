@@ -38,12 +38,6 @@ void Game::Setup(sf::RenderWindow &window) {
     despawns.emplace_back(sf::Vector2f{700, 1020});
     despawns.emplace_back(sf::Vector2f{1700, 1030});
     despawns.emplace_back(sf::Vector2f{1870, 680});
-    despawns.emplace_back(sf::Vector2f{710, 420});
-    despawns.emplace_back(sf::Vector2f{670, 420});
-    despawns.emplace_back(sf::Vector2f{1225, 420});
-    despawns.emplace_back(sf::Vector2f{1255, 420});
-    despawns.emplace_back(sf::Vector2f{985, 610});
-    despawns.emplace_back(sf::Vector2f{985, 660});
 
     this->clientController->spawnPoints = spawns;
     this->clientController->despawnPoints = despawns;
