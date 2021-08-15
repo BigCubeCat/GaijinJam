@@ -35,13 +35,19 @@ void Player::Update(float deltaTime) {
 }
 
 void Player::Callback() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) this->ySpeed = -1;
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) this->ySpeed = 1;
-    else this->ySpeed = 0;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) this->xSpeed = -1;
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) this->xSpeed = 1;
-    else this->xSpeed = 0;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+    if (sf::Joystick::isConnected(0)) {
+        this->ySpeed = sf::Joystick::getAxisPosition(0, sf::Joystick::Y) / 100;
+        this->xSpeed = sf::Joystick::getAxisPosition(0, sf::Joystick::X) / 100;
+    }
+    else {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) this->ySpeed = -1;
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) this->ySpeed = 1;
+        else this->ySpeed = 0;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) this->xSpeed = -1;
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) this->xSpeed = 1;
+        else this->xSpeed = 0;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) || sf::Joystick::isButtonPressed(0, 0)) {
         if (this->sound.getStatus() == sf::SoundSource::Stopped) {
             this->sound.setBuffer(this->sb[rand() % 2]);
             this->sound.play();

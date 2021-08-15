@@ -61,7 +61,6 @@ void Game::Setup(sf::RenderWindow &window) {
 
 void Game::Update(sf::RenderWindow &window, float deltaTime) {
     this->world->Step(1 / SCALE, 8, 3);
-
     window.clear(sf::Color::Black);
     if (this->currentScreen == GAME_SCREEN) {
         window.draw(*this->BG);
@@ -89,14 +88,14 @@ void Game::Update(sf::RenderWindow &window, float deltaTime) {
         }
     } else if (this->currentScreen <= LEARN_SCREEN) {
         this->screenSprite.setTexture(this->allTextures[this->currentScreen + 4]);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && this->keyReleased) {
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space) ||  sf::Joystick::isButtonPressed(0, 0)) && this->keyReleased) {
             this->keyReleased = false;
             this->currentScreen++;
         }
         window.draw(this->screenSprite);
     } else if (this->currentScreen == WIN_SCREEN || this->currentScreen == LOOSE_SCREEN) {
         this->screenSprite.setTexture(this->allTextures[this->currentScreen + 4]);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) || sf::Joystick::isButtonPressed(0, 0)) {
             this->ClearGame();
             this->currentScreen = GAME_SCREEN;
         }

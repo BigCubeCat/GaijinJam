@@ -22,7 +22,8 @@ int main(void) {
         sf::Event event;
         while (Window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) Window.close();
-            if (event.type == sf::Event::KeyReleased) game.keyReleased = true;
+            if (event.type == sf::Event::KeyReleased || event.type == sf::Event::JoystickButtonReleased)
+                game.keyReleased = true;
         }
         deltaTime = clock.getElapsedTime().asSeconds();
         clock.restart();

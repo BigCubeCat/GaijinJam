@@ -8,12 +8,10 @@ Client::Client(
     float weight, std::vector<sf::Vector2f> lastPoint, int symIndex, bool masked
 ) : Character(world, x, y, w, h, weight) {
     if (!this->sb[0].loadFromFile(SOUNDS[symIndex % 10])) {
-        std::cout << SOUNDS[symIndex % 10] << std::endl;
+        std::cout << SOUNDS[symIndex % 4] << std::endl;
     }
-    if (!this->sb[1].loadFromFile("../asset/sound/end1.ogg")) {
-        std::cout << "ERR\n";
-    };
-    this->sb[2].loadFromFile("../assets/sound/end1.ogg");
+    this->sb[1].loadFromFile("../assets/sounds/mas1.wav");
+    this->sb[2].loadFromFile("../assets/sounds/mas1.wav");
     this->sound.setVolume(50.0f);
 
     this->masked = masked;
