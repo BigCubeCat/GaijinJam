@@ -5,8 +5,8 @@
 #define INF 100000007
 
 const float SCALE = 120.f; 
-const float PLAYER_SPEED = 12.0f;
-const float PLAYER_START_SPEED = 1.0;
+const float PLAYER_SPEED = 400.0f;
+const float PLAYER_START_SPEED = 100.0;
 const float PLAYER_DIAMETR = 58.0f;
 const float POINT_DISTANCE = 2.0f;
 const std::string ALPHABET = "abcdefjhijklmn";
@@ -38,9 +38,9 @@ const float SPAWNER_ACCELERATION_DELAY = 1.0f;
 const float SPAWNER_ACCELERATION = 1.1f;
 
 // Physics
-const float ACCELERATION = 1.0f;
-const float MINIMUM_SPEED = 1.0f;
-const float MAXIMUM_SPEED = 4.0f;
+const float ACCELERATION = 50.0f;
+const float MINIMUM_SPEED = 50.0f;
+const float MAXIMUM_SPEED = 150.0f;
 const float DEFAULT_DAMPING = 10.0;
 const float DEFAULT_FRICTION = 0.5;
 const float DEFAULT_RESTITUTION = 0.1;

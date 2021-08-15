@@ -32,10 +32,12 @@ Character::Character(
     this->animation.currentAnimation = this->masked ? "masked" : "free";
 }
 
-void Character::Move(float x, float y) {
+void Character::Move(float x, float y, float deltaTime) {
     if (this->stoped) this->speed = minSpeed;
     if (speed + ACCELERATION > maxSpeed) this->speed = maxSpeed; else this->speed = speed + ACCELERATION;
-    this->body->ApplyForceToCenter(b2Vec2{x * this->speed * this->mass, y * this->speed * this->mass}, true);
+    this->body->ApplyForceToCenter(b2Vec2{
+            x * this->speed * this->mass * deltaTime,
+            y * this->speed * this->mass * deltaTime}, true);
     this->stoped = x == 0 && y == 0;
 }
 

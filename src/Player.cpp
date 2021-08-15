@@ -25,7 +25,7 @@ Player::Player(
 void Player::Update(float deltaTime) {
     this->sensor.body->SetTransform(this->body->GetPosition(), 0);
     this->Callback();
-    this->Move(this->xSpeed, this->ySpeed);
+    this->Move(this->xSpeed, this->ySpeed, deltaTime);
     this->animation.currentAnimation = this->masked ? "masked" : "free";
     this->animation.Tick(deltaTime);
     for (b2ContactEdge* ce = this->body->GetContactList(); ce; ce = ce->next) {

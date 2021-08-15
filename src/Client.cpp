@@ -64,7 +64,7 @@ void Client::Update(float deltaTime) {
             return;
         }
     }
-    this->Move(this->xVector, this->yVector);
+    this->Move(this->xVector, this->yVector, deltaTime);
 
 }
 
