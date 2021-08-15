@@ -114,8 +114,4 @@ void Game::ClearGame() {
         this->world->DestroyBody(this->clientController->clients[i].body);
         this->clientController->clients.erase(this->clientController->clients.begin()+(int)i);
     }
-    /*b2Body *allBodies = this->world->GetBodyList();
-    for (int i = 0; i < sizeof(allBodies); i++) {
-        this->world->DestroyBody(&allBodies[i]);
-    }*/
 }
