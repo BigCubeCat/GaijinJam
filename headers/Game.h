@@ -26,6 +26,7 @@ public:
     
     Player *player;
     ClientController *clientController;
+    PointMap *pointMap;
 
     bool GameOver = false;
     bool win = false;

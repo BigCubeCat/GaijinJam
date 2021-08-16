@@ -21,10 +21,10 @@ void Game::Setup(sf::RenderWindow &window) {
 
     int mapNumber = 1;
     makeMap("../resources/maps.txt", mapNumber, this->mainWallList, this->mapWallList, *this->world);
-    PointMap pointMap("../resources/map.txt");
 
+    this->pointMap = new PointMap("../resources/map.txt");
     this->player = new Player(*this->world, 500, 500, Sensor(*this->world, 500, 500, BLAST_RADIUS));
-    this->clientController = new ClientController(*this->world, window, *this->player);
+    this->clientController = new ClientController(*this->world, window, *this->player, *this->pointMap);
     this->slider = new Slider(-SCORE, SCORE, 840, 50, 360, 1080, *this->player);
     this->slider->setScale(0.6, 0.6);
 

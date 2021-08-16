@@ -1,8 +1,7 @@
 #include "../headers/ClientController.h"
 #include <iostream>
 
-
-ClientController::ClientController(b2World &world, sf::RenderWindow &window, Player &player) {
+ClientController::ClientController(b2World &world, sf::RenderWindow &window, Player &player, PointMap &pointMap) {
     this->world = &world;
     this->window = &window;
     this->player = &player;
@@ -36,7 +35,7 @@ void ClientController::SpawnClient() {
     auto spawn = this->spawnPoints[rand() % this->spawnPoints.size()];
     auto *newClient = new Client(*this->world,
         spawn.x, spawn.y, 50, 50, rand() % 200 + 50, this->despawnPoints, 
-        rand() % 14, false
+        rand() % 14, *this->pointMap
     );
     newClient->freeTime = (rand() % MAXIMUM_FREE_TIME) + MINIMUM_FREE_TIME;
     newClient->dieTime = BOOM_TIME * 4;

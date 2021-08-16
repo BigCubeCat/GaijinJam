@@ -5,7 +5,7 @@
 
 Client::Client(
     b2World &world, float x, float y, float w, float h, 
-    float weight, std::vector<sf::Vector2f> lastPoint, int symIndex, bool masked
+    float weight, std::vector<sf::Vector2f> lastPoint, int symIndex, PointMap &points
 ) : Character(world, x, y, w, h, weight) {
     if (!this->sb[0].loadFromFile(SOUNDS[symIndex % 10])) {
         std::cout << SOUNDS[symIndex % 4] << std::endl;
@@ -14,7 +14,7 @@ Client::Client(
     this->sb[2].loadFromFile("../assets/sounds/mas1.wav");
     this->sound.setVolume(50.0f);
 
-    this->masked = masked;
+    this->masked = false;
     this->lastPoints = lastPoint;
     this->path = "../assets/characters/";
     this->path.push_back(ALPHABET[symIndex]);
@@ -45,11 +45,18 @@ void Client::Update(float deltaTime) {
     }
     this->Move(this->xVector, this->yVector, deltaTime);
     if (this->goToShop) {
+        // path finding
         auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
+        this->points->Search(sf::Vector2i{(int)pos.x, (int)pos.y});
         if (this->nearThePoint(this->currentPoint, pos)) {
-            this->xVector = 0.0f;
-            this->yVector = 0.0f;
-            this->atCheckout = true;
+            if (!this->wayToEnd.size()) {
+                this->xVector = 0.0f;
+                this->yVector = 0.0f;
+                this->atCheckout = true;
+            } else {
+                this->currentPoint = this->wayToEnd.front();
+                this->wayToEnd.pop();
+            }
         }
         this->xVector = normalize(this->currentPoint.x - pos.x);
         this->yVector = normalize(this->currentPoint.y - pos.y);
@@ -59,19 +66,11 @@ void Client::Update(float deltaTime) {
             this->spendedTime = 0.0f;
             auto pos = sf::Vector2f{this->body->GetPosition().x * SCALE, this->body->GetPosition().y * SCALE};
             this->goToShop = true;
-            float minimum = INF+1;
-            for (const sf::Vector2f &point : this->lastPoints) {
-                float d = distance(pos, point);
-                if (d < minimum) {
-                    minimum = d;
-                    this->currentPoint = point;
-                }
-            }
-           this->goToShop = true;
-            return;
+            this->currentPoint = this->points->nearestPoint(pos);
+            this->wayToEnd = this->points->Search(sf::Vector2i{
+                    (int)this->currentPoint.x, (int)this->currentPoint.y});
         }
     }
-
 }
 
 bool Client::nearThePoint(sf::Vector2f pos, sf::Vector2f point) {

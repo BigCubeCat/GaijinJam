@@ -1,5 +1,6 @@
 #pragma once
 #include "../headers/Character.h"
+#include "../headers/PointMap.h"
 
 class Client : public Character {
 private:
@@ -11,6 +12,8 @@ private:
     sf::SoundBuffer sb[3];
     sf::Sound sound;
     bool isSound = false;
+    PointMap *points;
+    std::queue<sf::Vector2f> wayToEnd;
 public:
     float freeTime;
     float dieTime;
@@ -19,7 +22,8 @@ public:
     bool masked = false;
     sf::Vector2f currentPoint;
     std::vector<sf::Vector2f> lastPoints;
-    Client(b2World &world, float x, float y, float w, float h, float weight, std::vector<sf::Vector2f> lastPoint, int symIndex, bool masked);
+    Client(b2World &world, float x, float y, float w, float h, float weight,
+            std::vector<sf::Vector2f> lastPoint, int symIndex, PointMap &points);
    // Client(const Client &client);
     void ReactToClass(int);
     void Update(float deltaTime);

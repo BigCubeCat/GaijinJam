@@ -3,6 +3,7 @@
 //
 
 #include "../headers/Helper.h"
+#include <iostream>
 
 float charToInt(std::string & line){
     float res = 0;
@@ -59,15 +60,15 @@ std::vector<std::vector<int>> loadMatrix(const std::string& fileName) {
     std::vector<std::vector<int>> matrix;
     std::ifstream file(fileName);
     if(file.is_open()){
-        std::vector<int> row;
         std::string line;
         while(std::getline(file, line)){
+            std::vector<int> row;
             for (char i : line) {
                 int newValue = i - '0';
-                row.push_back(newValue);
+                row.emplace_back(newValue);
             }
+            matrix.emplace_back(row);
         }
-        matrix.emplace_back(row);
     }
     return  matrix;
 }
