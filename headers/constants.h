@@ -8,7 +8,7 @@ const float SCALE = 120.f;
 const float PLAYER_SPEED = 600.0f;
 const float PLAYER_START_SPEED = 100.0;
 const float PLAYER_DIAMETR = 58.0f;
-const float POINT_DISTANCE = 150.0f;
+const float POINT_DISTANCE = 70.0f;
 const std::string ALPHABET = "abcdefjhijklmn";
 const std::string SOUNDS[4] = {
         "../assets/sounds/bump/oi7.wav",
@@ -19,17 +19,17 @@ const std::string SOUNDS[4] = {
 const float PLAYER_MASS = 100.0f;
 
 // Score
-const int PLUS = 1;
+const int PLUS = 2;
 const int MINUS = 5;
 const int SCORE = 100;
 
 // AI
 const int MINIMUM_FREE_TIME = 1.0f; // in seconds;
 const int MAXIMUM_FREE_TIME = 10.0f; // in seconds;
-const float SPAWNER_TIME = 5.0f;
-const float MINIMUM_SPAWNER_DELAY = 0.5;
+const float SPAWNER_TIME = 2.0f;
+const float MINIMUM_SPAWNER_DELAY = 0.25;
 const float SPAWNER_ACCELERATION_DELAY = 20.0f;
-const float SPAWNER_ACCELERATION = 0.2f;
+const float SPAWNER_ACCELERATION = 1.1f;
 
 // Physics
 const float ACCELERATION = 50.0f;

@@ -29,10 +29,10 @@ void Game::Setup(sf::RenderWindow &window) {
     vector<sf::Vector2f> spawns;
     vector<sf::Vector2f> despawns;
 
-    spawns.emplace_back(sf::Vector2f{950, 75});
-    spawns.emplace_back(sf::Vector2f{1000, 75});
+    spawns.emplace_back(sf::Vector2f{700, 75});
+    spawns.emplace_back(sf::Vector2f{650, 75});
     spawns.emplace_back(sf::Vector2f{1050, 75});
-    spawns.emplace_back(sf::Vector2f{900, 75});
+    spawns.emplace_back(sf::Vector2f{750, 75});
     spawns.emplace_back(sf::Vector2f{1100, 75});
 
     despawns.emplace_back(sf::Vector2f{115, 620});
