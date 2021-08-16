@@ -2,7 +2,7 @@
 
 
 int main(void) {
-    sf::RenderWindow Window(sf::VideoMode(1920, 1080), "Game", sf::Style::Default);
+    sf::RenderWindow Window(sf::VideoMode(1920, 1080), "Game", sf::Style::Fullscreen);
     Window.setFramerateLimit(60);
 
     sf::SoundBuffer musicBuffer;

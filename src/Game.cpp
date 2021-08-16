@@ -14,6 +14,7 @@ void Game::Setup(sf::RenderWindow &window) {
     this->LoadTexture("../assets/floor.png");
     this->LoadTexture("../assets/screens/first.png");
     this->LoadTexture("../assets/screens/second.png");
+    this->LoadTexture("../assets/screens/help.png");
     this->LoadTexture("../assets/screens/win.png");
     this->LoadTexture("../assets/screens/loose.png");
 

@@ -20,6 +20,13 @@ Player::Player(
     this->sb[2].loadFromFile("../assets/sounds/mas1.wav");
     this->sb[3].loadFromFile("../assets/sounds/mas2.wav");
     this->sb[4].loadFromFile("../assets/sounds/mas3.wav");
+    this->sb[5].loadFromFile("../assets/sounds/mas4.wav");
+    this->sb[6].loadFromFile("../assets/sounds/mas5.wav");
+    this->sb[7].loadFromFile("../assets/sounds/mas6.wav");
+    this->sb[8].loadFromFile("../assets/sounds/mas7.wav");
+    this->sb[9].loadFromFile("../assets/sounds/mas8.wav");
+    this->sb[10].loadFromFile("../assets/sounds/mas9.wav");
+    this->sb[11].loadFromFile("../assets/sounds/mas10.wav");
 }
 
 void Player::Update(float deltaTime) {
@@ -75,7 +82,7 @@ void Player::ReactToClass(int TypeIndex) {
         case CLIENT_TYPE:
             this->score += PLUS;
             if (this->sound.getStatus() == sf::SoundSource::Stopped) {
-                this->sound.setBuffer(this->sb[rand() % 3 + 2]);
+                this->sound.setBuffer(this->sb[rand() % 10 + 2]);
                 this->sound.play();
             }
             break;

@@ -11,7 +11,7 @@ public:
     float ySpeed = 0;
     bool masked;
     
-    sf::SoundBuffer sb[5];
+    sf::SoundBuffer sb[12];
     
     sf::Sound sound;
     
