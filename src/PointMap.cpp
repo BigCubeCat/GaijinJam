@@ -5,16 +5,19 @@
 
 PointMap::PointMap(const std::string& path) {
     this->points = loadMatrix(path);
-    std::cout << this->points[0][0] << "\n";
+    std::cout << this->points[10][10] << "\n";
 }
 
 sf::Vector2f PointMap::nearestPoint(sf::Vector2f point){
     int row, col;
     row = (int)point.y / NPS_SIZE;
     col = (int)point.x / NPS_SIZE;
+    int newX, newY;
     for (int i = -1; i < 2; i++) {
         for (int j = -1; j < 2; j++) {
-            std::cout << this->points[0][0];
+            newX = row+i; newY = col+j;
+            std::cout << this->points.size();
+            if (newX < 0 || newX >= this->points[0].size() || newY < 0 || newY >= this->points.size()) continue;
             if (this->points[row+i][col+j] == FREE_POINT || this->points[row+i][col+j] == FINISH_POINT) {
                 return sf::Vector2f{(float)(col+j) * NPS_SIZE, (float)(row+i) * NPS_SIZE};
             }

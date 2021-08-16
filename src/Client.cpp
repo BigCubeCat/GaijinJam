@@ -10,6 +10,8 @@ Client::Client(
     if (!this->sb[0].loadFromFile(SOUNDS[symIndex % 10])) {
         std::cout << SOUNDS[symIndex % 4] << std::endl;
     }
+    this->points = &points;
+    std::cout << this->points->points[0][0] << std::endl;
     this->sb[1].loadFromFile("../assets/sounds/mas1.wav");
     this->sb[2].loadFromFile("../assets/sounds/mas1.wav");
     this->sound.setVolume(50.0f);

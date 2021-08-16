@@ -70,5 +70,5 @@ std::vector<std::vector<int>> loadMatrix(const std::string& fileName) {
             matrix.emplace_back(row);
         }
     }
-    return  matrix;
+    return matrix;
 }

@@ -6,10 +6,9 @@
 #include <queue>
 
 class PointMap {
-private:
-    std::vector<std::vector<int>> points;
 public:
-    explicit PointMap(const std::string&);
+    std::vector<std::vector<int>> points;
+    PointMap(const std::string&);
     sf::Vector2f nearestPoint(sf::Vector2f);
     // для поиска ближайшей точки в матрице использовать nearestPoint!
     std::queue<sf::Vector2f> Search(sf::Vector2i point);

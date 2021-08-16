@@ -5,6 +5,7 @@ ClientController::ClientController(b2World &world, sf::RenderWindow &window, Pla
     this->world = &world;
     this->window = &window;
     this->player = &player;
+    this->pointMap = &pointMap;
     this->delayTime = SPAWNER_TIME;
 }
 
@@ -33,6 +34,7 @@ void ClientController::Update(float deltaTime) {
 
 void ClientController::SpawnClient() {
     auto spawn = this->spawnPoints[rand() % this->spawnPoints.size()];
+    std::cout << this->pointMap->points[0][0] << std::endl;
     auto *newClient = new Client(*this->world,
         spawn.x, spawn.y, 50, 50, rand() % 200 + 50, this->despawnPoints, 
         rand() % 14, *this->pointMap
